@@ -1,6 +1,6 @@
 <template>
   <div>
-    Home
+    Logout
     <placeholder />
   </div>
 </template>
