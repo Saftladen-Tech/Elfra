@@ -7,5 +7,6 @@ const { data: home_content } = await useAsyncData('home_content', () => queryCol
     Home
     <placeholder />
     <ContentRenderer :value="home_content" />
+    <UButton to="/login">Test</UButton>
   </UContainer>
 </template>
