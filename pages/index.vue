@@ -3,9 +3,9 @@ const { data: home_content } = await useAsyncData('home_content', () => queryCol
 </script> 
 
 <template>
-  <div>
+  <UContainer>
     Home
     <placeholder />
     <ContentRenderer :value="home_content" />
-  </div>
+  </UContainer>
 </template>

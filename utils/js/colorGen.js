@@ -1,6 +1,6 @@
 import chroma from "chroma-js";
 
-function generateTailwindShades(baseColor) {
+export default function generateTailwindShades(baseColor) {
   return {
     50: chroma(baseColor).brighten(3).hex(),
     100: chroma(baseColor).brighten(2.5).hex(),
@@ -15,4 +15,5 @@ function generateTailwindShades(baseColor) {
   };
 }
 
-console.log(generateTailwindShades("#3498db"));
+// DEBUG
+//console.log(generateTailwindShades("#3498db"));
