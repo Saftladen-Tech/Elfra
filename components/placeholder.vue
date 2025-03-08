@@ -1,3 +1,3 @@
 <template>
-    <h1>Welcome to Elfra</h1>
+    <h1>This Pages is WIP</h1>
 </template>
