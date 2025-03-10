@@ -1,4 +1,7 @@
-<script setup>
+<script setup lang="ts">
+definePageMeta({
+  middleware: ["auth"]
+})
 const { data: home_content } = await useAsyncData('home_content', () => queryCollection('content').path("/home").first());
 </script> 
 
