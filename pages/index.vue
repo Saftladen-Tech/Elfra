@@ -22,27 +22,19 @@ onMounted(async () => {
 
     // Use replaceState to redirect the user away and remove the querystring parameters
     window.history.replaceState({}, document.title, "/");
-  } 
+    } 
 
-  const isAuthenticated = await auth0.isAuthenticated();
-  console.log("Authentication:", isAuthenticated);
-  if (!isAuthenticated) {
-    console.log("not authenticated");
-    await auth0.loginWithRedirect({
-      authorizationParams: {
-        redirect_uri: window.location.origin,
-      },
-    });
+    const isAuthenticated = await auth0.isAuthenticated();
+    console.log("Authentication:", isAuthenticated);
+    if (!isAuthenticated) {
+      console.log("not authenticated");
+      await auth0.loginWithRedirect({
+        authorizationParams: {
+          redirect_uri: window.location.origin,
+        },
+      });
+    }
   }
-  }
-
-  const logout_func = () => {
-    auth0.logout({
-      logoutParams: {
-        returnTo: "http://localhost:3000/login",
-      },
-    });
-  };
 });
 const { data: home_content } = await useAsyncData('home_content', () => queryCollection('content').path("/home").first());
 </script> 
