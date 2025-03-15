@@ -1,5 +1,12 @@
+<script setup>
+const { data: home_content } = await useAsyncData('home_content', () => queryCollection('content').path("/home").first());
+</script> 
+
 <template>
-  <div>
+  <UContainer>
+    Home
     <placeholder />
-  </div>
+    <ContentRenderer :value="home_content" />
+    <UButton to="/login">Test</UButton>
+  </UContainer>
 </template>
