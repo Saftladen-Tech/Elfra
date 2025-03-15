@@ -5,7 +5,7 @@ import ChangeColorBtn from '~/components/ChangeColorBtn.vue';
 
 <template>
   <div>
-    <p>This is NAV</p>
+    <p class="w-full text-center">This is NAV</p>
     <ChangeColorBtn/>
     <slot />
     <p>This is Footer</p>
