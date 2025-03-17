@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="flex w-full h-full" justify-center content-center>
+  <div class="flex w-full min-h-screen justify-center items-center">
     <ErrorMessage />
   </div>
 </template>
