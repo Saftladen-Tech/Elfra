@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full justify-center items-center">
-        <h1>404</h1>
+    <div class="flex">
+        <p class="text-prmry-500 text-8xl font-bold">404</p>
     </div>
 </template>
