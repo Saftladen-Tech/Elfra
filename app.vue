@@ -1,5 +1,5 @@
 <template>
-  <UContainer>
+  <UContainer class="min-h-full">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
