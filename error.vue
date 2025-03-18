@@ -1,7 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: 'just-footer'
-})
 import type { NuxtError } from '#app'
 
 const props = defineProps({
