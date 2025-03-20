@@ -10,8 +10,8 @@ const content = await queryCollection('content').path('/content_placeholder').fi
       <ContentRenderer class="text-xl font-regular" :value="content.body" />
     </div>
     <div id="buttons" class="flex justify-between my-3">
-      <UButton color="primary" variant="outline" class="px-14 py-4 dark:hover:bg-prmry-900/50" to="/">Zurück</UButton>
-      <UButton color="primary" variant="outline" class="px-14 py-4 dark:hover:bg-prmry-900/50" to="/">Weiter</UButton>
+      <UButton color="primary" variant="outline" class="px-14 py-4" to="/">Zurück</UButton>
+      <UButton color="primary" variant="outline" class="px-14 py-4" to="/">Weiter</UButton>
     </div>
   </div>
 </template>
