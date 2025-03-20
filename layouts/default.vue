@@ -25,6 +25,8 @@ const links = ref([
       <UAvatar alt="avatar" size="2xl" />
     </header>
     <slot />
-
+    <footer class="absolute bottom-4 text-xs text-gray-400">
+    ELFRA Framework –  <NuxtLink to="https://github.com/Saftladen-Tech/Elfra">Github</NuxtLink> – MIT Licensed
+    </footer>
   </div>
 </template>
