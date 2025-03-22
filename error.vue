@@ -12,5 +12,6 @@ const props = defineProps({
         <p class="text-prmry-500 text-9xl font-bold text-center">{{ error.statusCode }}</p>
         <p class="text-6xl">{{ error.statusMessage }}</p>
     </div>
+    <footer-costum />
   </div>
 </template>
