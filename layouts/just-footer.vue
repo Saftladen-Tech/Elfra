@@ -1,6 +1,6 @@
 <template>
-  <div>
+  <div class="min-h-screen relative">
     <slot />
-    <p>This is Footer</p>
+    <footer-costum />
   </div>
 </template>
