@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen relative">
+  <div class="min-h-screen flex flex-col">
     <slot />
     <footer-costum />
   </div>
