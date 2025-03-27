@@ -11,6 +11,7 @@ export default <Partial<Config>>{
         accnt: generateTailwindShades("#fde1af"),
         drk: generateTailwindShades("#0e0e11"),
         brght: generateTailwindShades("#ffffff"),
+        success: generateTailwindShades("#00DC82"),
       },
       dropShadow: {
         "glow-bright-lg": "0 0 50px theme('colors.prmry.300')",
