@@ -8,7 +8,7 @@
   <div class="flex flex-col grow justify-center items-center">
     <div class="flex flex-col justify-center items-center text-center space-y-12">
       <div class="max-w-[800px] flex flex-col space-y-5">
-        <h1 class="text-8xl text-semibold">Kurs beendet!</h1>
+        <h1 class="text-8xl font-semibold">Kurs beendet!</h1>
         <p class="text-4xl text-">Herzlichen glückwunsch! Du kannst den Kurs nun erneut durcharbeiten oder Abschließen!</p>
       </div>
       <div class="dark:text-success-500 text-success-700">
