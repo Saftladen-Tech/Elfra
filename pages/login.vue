@@ -14,8 +14,8 @@
 
   const validate = (state: any): FormError[] => {
     const errors = []
-    if (!state.email) errors.push({ path: 'email', message: 'Required' })
-    if (!state.password) errors.push({ path: 'password', message: 'Required' })
+    if (!state.email) errors.push({ path: 'email', message: 'Enter your e Mail' })
+    if (!state.password) errors.push({ path: 'password', message: 'Enter your Password!' })
     return errors
   }
 
@@ -31,16 +31,16 @@
       <div>
         <h3>Login</h3>
       </div>
-      <UForm :validate="validate" :state="state" class="space-y-2" @submit="onSubmit">
-        <UFormGroup label="Email" name="email">
+      <UForm :validate="validate" :state="state" class="space-y-4 relative" @submit="onSubmit">
+        <UFormGroup label="Email" name="email" required>
           <UInput v-model="state.email" />
         </UFormGroup>
 
-        <UFormGroup label="Password" name="password">
+        <UFormGroup label="Password" name="password" required>
           <UInput v-model="state.password" type="password" />
         </UFormGroup>
         <Transition>
-          <UButton block variant="outline" type="submit" v-if="state.email && state.password">
+          <UButton block type="submit" class="absolute" v-if="state.email && state.password">
           Submit
           </UButton>
         </Transition>
