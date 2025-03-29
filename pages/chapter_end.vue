@@ -5,7 +5,7 @@
   <div class="flex flex-col grow justify-center items-center">
     <div class="flex flex-col justify-center items-center text-center space-y-12">
       <div>
-        <h1 class="text-8xl text-semibold">Kapitel abgeschlossen!</h1>
+        <h1 class="text-8xl font-semibold">Kapitel abgeschlossen!</h1>
       </div>
       <div class="dark:text-success-500 text-success-700">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-64">
