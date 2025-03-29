@@ -13,6 +13,7 @@ export default <Partial<Config>>{
         brght: generateTailwindShades("#ffffff"),
         success: generateTailwindShades("#00DC82"),
         warn: generateTailwindShades("#fcc800"),
+        err: generateTailwindShades("#ff6467"),
       },
       dropShadow: {
         "glow-bright-lg": "0 0 50px theme('colors.prmry.300')",
