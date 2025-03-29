@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { UIcon } from '#components';
-
 </script>
 
 <template>
