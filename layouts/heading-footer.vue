@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <div class="flex items-center justify-center space-x-5 h-64">
+    <div class="flex items-center justify-center space-x-5 mt-20">
       <img src="public/images/logo.jpg" alt="Company Logo" class="w-24 h-24 rounded-full" />
       <h1 class="text-6xl font-bold">Companyname</h1>
     </div>
