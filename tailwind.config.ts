@@ -16,6 +16,10 @@ export default <Partial<Config>>{
         "glow-bright-lg": "0 0 50px theme('colors.prmry.300')",
         "glow-dark-lg": "0 0 50px theme('colors.prmry.500')",
       },
+      boxShadow: {
+        "glow-dark": "0 0 120px theme('colors.prmry.500')",
+        "glow-bright": "0 0 120px theme('colors.prmry.300')",
+      },
     },
   },
 };
