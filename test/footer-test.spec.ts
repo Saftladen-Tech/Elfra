@@ -7,15 +7,35 @@ describe("footer content", async () => {
   });
 
   it("footer content", async () => {
-    const page = await createPage("/test");
-    expect(await page.content()).toContain("ELFRA Framework – ");
+    const page = await createPage("/");
+    expect(await page.getByTestId("footer").innerHTML()).toContain(
+      "ELFRA Framework – "
+    );
   });
   it("footer content", async () => {
-    const page = await createPage("/test");
-    expect(await page.content()).toContain("Github");
+    const page = await createPage("/");
+    expect(await page.getByTestId("footer").innerHTML()).toContain("Github");
   });
   it("footer content", async () => {
-    const page = await createPage("/test");
-    expect(await page.content()).toContain(" – MIT Licensed");
+    const page = await createPage("/");
+    expect(await page.getByTestId("footer").innerHTML()).toContain(
+      " – MIT Licensed"
+    );
+  });
+
+  it("footer position", async () => {
+    const page = await createPage("/");
+
+    const footer = await page.getByTestId("footer"); // Adjust selector if needed
+    const footerBox = await footer.boundingBox();
+
+    const vph = await page.evaluate(() => window.innerHeight);
+    const vpw = await page.evaluate(() => window.innerWidth);
+
+    const elementCenterX = footerBox.x + footerBox.width / 2;
+    const vpxc = vpw / 2;
+
+    expect(footerBox.y + footerBox.height).toBeCloseTo(vph, 2); // Allow slight margin
+    expect(elementCenterX).toBeCloseTo(vpxc, 2); // Allow slight margin
   });
 });
