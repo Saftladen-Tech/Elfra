@@ -6,4 +6,14 @@ describe("header content", async () => {
     host: "http://localhost:3000",
   });
 
+  it("header content", async () => {
+    const page = await createPage("/");
+    expect(
+      await page
+        .getByTestId("header")
+        .first()
+        .getByAltText("Company Logo")
+        .count()
+    ).toBe(1);
+  });
 });
