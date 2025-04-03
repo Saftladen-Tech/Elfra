@@ -6,17 +6,24 @@ describe("footer content", async () => {
     host: "http://localhost:3000",
   });
 
-  it("footer content", async () => {
+  it("footer name", async () => {
     const page = await createPage("/");
     expect(await page.getByTestId("footer").innerHTML()).toContain(
       "ELFRA Framework – "
     );
   });
-  it("footer content", async () => {
+
+  it("footer link", async () => {
     const page = await createPage("/");
-    expect(await page.getByTestId("footer").innerHTML()).toContain("Github");
+    expect(
+      await page
+        .getByTestId("footer")
+        .getByRole("link", { name: "Github", exact: true })
+        .count()
+    ).toBe(1);
   });
-  it("footer content", async () => {
+
+  it("footer license", async () => {
     const page = await createPage("/");
     expect(await page.getByTestId("footer").innerHTML()).toContain(
       " – MIT Licensed"
