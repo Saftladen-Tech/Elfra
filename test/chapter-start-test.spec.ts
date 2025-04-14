@@ -7,7 +7,7 @@ describe("chapter start test", async () => {
   });
 
   it("chapter start content", async () => {
-    const page = await createPage("/");
+    const page = await createPage("/chapter_start");
     expect(await page.content()).toContain("");
   });
 });

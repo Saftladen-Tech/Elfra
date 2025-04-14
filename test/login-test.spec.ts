@@ -7,7 +7,7 @@ describe("login test", async () => {
   });
 
   it("login content", async () => {
-    const page = await createPage("/");
+    const page = await createPage("/login");
     expect(await page.content()).toContain("");
   });
 });

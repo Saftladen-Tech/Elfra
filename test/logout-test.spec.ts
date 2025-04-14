@@ -7,7 +7,7 @@ describe("logout test", async () => {
   });
 
   it("logout content", async () => {
-    const page = await createPage("/");
+    const page = await createPage("/logout");
     expect(await page.content()).toContain("");
   });
 });

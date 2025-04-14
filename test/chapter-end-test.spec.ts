@@ -7,7 +7,7 @@ describe("chapter end test", async () => {
   });
 
   it("chapter end content", async () => {
-    const page = await createPage("/");
+    const page = await createPage("/chapter_end");
     expect(await page.content()).toContain("");
   });
 });

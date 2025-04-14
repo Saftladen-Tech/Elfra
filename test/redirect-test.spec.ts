@@ -7,7 +7,7 @@ describe("redirect test", async () => {
   });
 
   it("redirect content", async () => {
-    const page = await createPage("/");
+    const page = await createPage("/redirect");
     expect(await page.content()).toContain("");
   });
 });

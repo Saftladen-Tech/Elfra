@@ -7,7 +7,7 @@ describe("course end test", async () => {
   });
 
   it("course end content", async () => {
-    const page = await createPage("/");
+    const page = await createPage("/course_end");
     expect(await page.content()).toContain("");
   });
 });
