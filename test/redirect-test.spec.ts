@@ -15,14 +15,17 @@ describe("redirect test", async () => {
 
   it("first paragraph text color", async () => {
     const page = await createPage("/redirect");
-    const paragraph = await page.getByTestId("contentwrapper").getByRole("paragraph").first();
+    const paragraph = await page
+      .getByTestId("contentwrapper")
+      .getByRole("paragraph")
+      .first();
     const color = await paragraph.evaluate((el) => {
       return window.getComputedStyle(el).color;
     });
 
     expect(color).toBe("rgb(252, 200, 0)"); // Orange in RGB
   });
-  
+
   it("content position", async () => {
     const page = await createPage("/redirect");
     const content = await page.getByTestId("contentwrapper");

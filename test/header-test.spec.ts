@@ -8,10 +8,10 @@ describe("header content", async () => {
 
   it("static nav content", async () => {
     const page = await createPage("/");
-    const baseheader = await page.getByTestId("header")
+    const baseheader = await page.getByTestId("header");
 
     expect(await baseheader.getByAltText("Company Logo").count()).toBe(1);
-    // NOT CLEANLY DONE IN CODE - REVISIT expect(await baseheader.getByTestId("avatar").count()).toBe(1); 
+    // NOT CLEANLY DONE IN CODE - REVISIT expect(await baseheader.getByTestId("avatar").count()).toBe(1);
     expect(await baseheader.getByRole("navigation").count()).toBe(1);
     expect(await baseheader.getByTestId("colormode").count()).toBe(1);
   });
@@ -32,10 +32,10 @@ describe("header content", async () => {
 
   it("static hero content", async () => {
     const page = await createPage("/login");
-    const heroheader = await page.getByTestId("header")
+    const heroheader = await page.getByTestId("header");
 
     expect(await heroheader.getByAltText("Company Logo").count()).toBe(1);
-    expect(await heroheader.getByRole("heading", {level: 1}).count()).toBe(1);
+    expect(await heroheader.getByRole("heading", { level: 1 }).count()).toBe(1);
   });
 
   it("hero header position", async () => {

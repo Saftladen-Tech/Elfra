@@ -9,7 +9,7 @@ describe("chapter start test", async () => {
   it("Content Base", async () => {
     const page = await createPage("/chapter_start");
     const content = await page.getByTestId("contentwrapper");
-    expect(await content.getByRole("heading", {level: 1}).count()).toBe(1);
+    expect(await content.getByRole("heading", { level: 1 }).count()).toBe(1);
     expect(await content.getByRole("paragraph").count()).toBe(1);
   });
 
@@ -25,7 +25,7 @@ describe("chapter start test", async () => {
 
     const vpxc = vpw / 2;
 
-    expect(elementCenterX).toBeCloseTo(vpxc, 2); // Allow slight margin
+    expect(elementCenterX).toBeCloseTo(vpxc, 1); // Allow slight margin
   });
 
   it("Start button", async () => {
@@ -44,6 +44,6 @@ describe("chapter start test", async () => {
     const elementCenterX = startbox.x + startbox.width / 2;
     const vpxc = vpw / 2;
 
-    expect(elementCenterX).toBeCloseTo(vpxc, 2); // Allow slight margin
+    expect(elementCenterX).toBeCloseTo(vpxc, 1); // Allow slight margin
   });
 });

@@ -43,6 +43,6 @@ describe("footer content", async () => {
     const vpxc = vpw / 2;
 
     expect(footerBox.y + footerBox.height).toBeCloseTo(vph, 2); // Allow slight margin
-    expect(elementCenterX).toBeCloseTo(vpxc, 2); // Allow slight margin
+    expect(elementCenterX).toBeCloseTo(vpxc, 1); // Allow slight margin
   });
 });

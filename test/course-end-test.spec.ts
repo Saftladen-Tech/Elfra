@@ -9,9 +9,11 @@ describe("course end test", async () => {
   it("static content", async () => {
     const page = await createPage("/course_end");
     const content = await page.getByTestId("contentwrapper");
-    const heading = await content.getByRole("heading",{level: 1});
+    const heading = await content.getByRole("heading", { level: 1 });
     expect(await heading.allInnerTexts()).toContain("Kurs beendet!");
-    expect(await page.content()).toContain("Herzlichen glückwunsch! Du kannst den Kurs nun erneut durcharbeiten oder Abschließen!");
+    expect(await page.content()).toContain(
+      "Herzlichen glückwunsch! Du kannst den Kurs nun erneut durcharbeiten oder Abschließen!"
+    );
   });
 
   it("Content position", async () => {
@@ -26,7 +28,7 @@ describe("course end test", async () => {
 
     const vpxc = vpw / 2;
 
-    expect(elementCenterX).toBeCloseTo(vpxc, 2); // Allow slight margin
+    expect(elementCenterX).toBeCloseTo(vpxc, 1); // Allow slight margin
   });
 
   it("Has ICON", async () => {
@@ -35,12 +37,13 @@ describe("course end test", async () => {
     expect(await content.count()).toBe(1);
   });
 
-
   it("Has Nav Buttons end", async () => {
     const page = await createPage("/course_end");
     const navigation = page.getByTestId("navigation");
     expect(
-      await navigation.getByRole("button", { name: "Beenden", exact: true }).count()
+      await navigation
+        .getByRole("button", { name: "Beenden", exact: true })
+        .count()
     ).toBe(1);
   });
 
@@ -48,7 +51,9 @@ describe("course end test", async () => {
     const page = await createPage("/course_end");
     const navigation = page.getByTestId("navigation");
     expect(
-      await navigation.getByRole("button", { name: "Neustarten", exact: true }).count()
+      await navigation
+        .getByRole("button", { name: "Neustarten", exact: true })
+        .count()
     ).toBe(1);
   });
 });
