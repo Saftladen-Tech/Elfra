@@ -2,7 +2,6 @@
 const {data: content} = await useAsyncData('/courses/test-course/3-deepdive/1-theway', () => {
   return queryCollection('content').path('/courses/test-course/3-deepdive/1-theway').first()
 })
-console.log(content)
 </script>
 
 <template>
