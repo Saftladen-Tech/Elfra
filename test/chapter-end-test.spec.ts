@@ -22,7 +22,7 @@ describe("chapter end test", async () => {
     const page = await createPage("/chapter_end");
     const navigation = page.getByTestId("navigation");
     expect(
-      await navigation.getByRole("link", { name: "Weiter", exact: true }).count()
+      await navigation.getByRole("button", { name: "Weiter", exact: true }).count()
     ).toBe(1);
   });
 
@@ -30,7 +30,7 @@ describe("chapter end test", async () => {
     const page = await createPage("/chapter_end");
     const navigation = page.getByTestId("navigation");
     expect(
-      await navigation.getByRole("link", { name: "Wiederholen", exact: true }).count()
+      await navigation.getByRole("button", { name: "Wiederholen", exact: true }).count()
     ).toBe(1);
   });
 });
