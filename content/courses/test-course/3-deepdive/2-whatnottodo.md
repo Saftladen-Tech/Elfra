@@ -22,6 +22,6 @@ Sapien natoque torquent maecenas accumsan blandit nam integer. Platea elementum 
 Ipsum eget ad est vulputate volutpat sem habitant. Tincidunt inceptos tempus facilisi tempus id facilisis nulla cursus sapien? Enim vestibulum morbi sed hendrerit gravida. Potenti eget eros dictum euismod rhoncus ultrices consectetur sociosqu? Urna velit natoque ex ad ullamcorper cras dictumst. Ornare ultricies tincidunt litora diam pulvinar magnis iaculis tristique sed. Purus augue lorem torquent litora accumsan curabitur quis lacinia. Tristique erat non ac id, rhoncus cursus. Neque vulputate dolor euismod viverra tempus mi sodales turpis. Orci montes nec habitasse, fermentum parturient lectus.
 ::
 
-::Image
+::CImage
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "TestImage")
 ::
