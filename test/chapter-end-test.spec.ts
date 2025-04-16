@@ -14,7 +14,7 @@ describe("chapter end test", async () => {
   it("Content position", async () => {
     const page = await createPage("/chapter_end");
 
-    const content = await page.getByTestId("contentwrapper"); // Adjust selector if needed
+    const content = await page.getByTestId("contentwrapper");
     const contentbox = await content.boundingBox();
 
     const vpw = await page.evaluate(() => window.innerWidth);
@@ -23,7 +23,7 @@ describe("chapter end test", async () => {
 
     const vpxc = vpw / 2;
 
-    expect(elementCenterX).toBeCloseTo(vpxc, 2); // Allow slight margin
+    expect(elementCenterX).toBeCloseTo(vpxc, 2);
   });
 
   it("Has ICON", async () => {
