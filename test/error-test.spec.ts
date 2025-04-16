@@ -3,8 +3,7 @@ import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
 
 describe("Error test", async () => {
   await setup({
-    server: true
-    //host: "http://localhost:3000",
+    host: "http://localhost:3000",
   });
 
   it("error content", async () => {

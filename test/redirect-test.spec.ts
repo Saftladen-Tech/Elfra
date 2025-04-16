@@ -3,8 +3,7 @@ import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
 
 describe("redirect test", async () => {
   await setup({
-    server: true
-    //host: "http://localhost:3000",
+    host: "http://localhost:3000",
   });
 
   it("redirect content", async () => {
