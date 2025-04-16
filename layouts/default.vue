@@ -22,7 +22,7 @@ const links = ref([
       <div class="flex justify-center item-center mx-10">
         <ChangeColorBtn />
       </div>
-      <UAvatar alt="avatar" size="2xl" />
+      <UAvatar data-testid="avatar" alt="avatar" size="2xl" />
     </header>
     <slot />
     <footer-costum />
