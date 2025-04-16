@@ -23,7 +23,7 @@ Ipsum eget ad est vulputate volutpat sem habitant. Tincidunt inceptos tempus fac
 ::
 
 ::CImage
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "TestImage")
+![alt text](https://images.alphacoders.com/127/thumb-1920-1276648.png "TestImage")
 ::
 
 ::CParagraph

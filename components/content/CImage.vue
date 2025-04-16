@@ -1,5 +1,5 @@
 <template>
-    <div class="m-5 flex justify-center items-center">
+    <div class="m-8 flex justify-center items-center">
         <slot />
     </div>
 </template>
