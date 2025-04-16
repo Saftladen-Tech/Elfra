@@ -11,6 +11,21 @@ describe("chapter end test", async () => {
     expect(await page.content()).toContain("Kapitel abgeschlossen!");
   });
 
+  it("Content position", async () => {
+    const page = await createPage("/chapter_end");
+
+    const content = await page.getByTestId("contentwrapper"); // Adjust selector if needed
+    const contentbox = await content.boundingBox();
+
+    const vpw = await page.evaluate(() => window.innerWidth);
+
+    const elementCenterX = contentbox.x + contentbox.width / 2;
+
+    const vpxc = vpw / 2;
+
+    expect(elementCenterX).toBeCloseTo(vpxc, 2); // Allow slight margin
+  });
+
   it("Has ICON", async () => {
     const page = await createPage("/chapter_end");
     const content = page.getByTestId("icon");

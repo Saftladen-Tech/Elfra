@@ -3,7 +3,7 @@
 
 <template>
   <div class="flex flex-col grow justify-center items-center">
-    <div class="flex flex-col justify-center items-center text-center space-y-12">
+    <div data-testid="contentwrapper" class="flex flex-col justify-center items-center text-center space-y-12">
       <div>
         <h1 class="text-8xl font-semibold">Kapitel abgeschlossen!</h1>
       </div>

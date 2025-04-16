@@ -6,8 +6,43 @@ describe("chapter start test", async () => {
     host: "http://localhost:3000",
   });
 
-  it("chapter start content", async () => {
+  it("Content Base", async () => {
     const page = await createPage("/chapter_start");
-    expect(await page.content()).toContain("");
+    expect(await page.getByRole("heading", {level: 1}).count()).toBe(1);
+    expect(await page.getByRole("paragraph").count()).toBe(1);
+  });
+
+  it("Content position", async () => {
+    const page = await createPage("/chapter_start");
+
+    const content = await page.getByTestId("contentwrapper"); // Adjust selector if needed
+    const contentbox = await content.boundingBox();
+
+    const vpw = await page.evaluate(() => window.innerWidth);
+
+    const elementCenterX = contentbox.x + contentbox.width / 2;
+
+    const vpxc = vpw / 2;
+
+    expect(elementCenterX).toBeCloseTo(vpxc, 2); // Allow slight margin
+  });
+
+  it("Start button", async () => {
+    const page = await createPage("/chapter_start");
+    expect(await page.getByTestId("startbtn").count()).toBe(1);
+  });
+
+  it("Start button position", async () => {
+    const page = await createPage("/chapter_start");
+
+    const start = await page.getByTestId("startbtn"); // Adjust selector if needed
+    const startbox = await start.boundingBox();
+
+    const vpw = await page.evaluate(() => window.innerWidth);
+
+    const elementCenterX = startbox.x + startbox.width / 2;
+    const vpxc = vpw / 2;
+
+    expect(elementCenterX).toBeCloseTo(vpxc, 2); // Allow slight margin
   });
 });
