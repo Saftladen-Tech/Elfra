@@ -19,7 +19,7 @@ describe("index test", async () => {
     const page = await createPage("/");
     const content = await page.getByTestId("contentwrapper");
 
-    const cT = await page.getByTestId("courseTable");
+    const cT = await content.getByTestId("courseTable");
     const cTbox = await cT.boundingBox();
 
     const vpw = await page.evaluate(() => window.innerWidth);
