@@ -8,7 +8,8 @@ describe("course end test", async () => {
 
   it("static content", async () => {
     const page = await createPage("/course_end");
-    const heading = await page.getByRole("heading",{level: 1});
+    const content = await page.getByTestId("contentwrapper");
+    const heading = await content.getByRole("heading",{level: 1});
     expect(await heading.allInnerTexts()).toContain("Kurs beendet!");
     expect(await page.content()).toContain("Herzlichen glückwunsch! Du kannst den Kurs nun erneut durcharbeiten oder Abschließen!");
   });

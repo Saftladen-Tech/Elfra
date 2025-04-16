@@ -8,14 +8,15 @@ describe("chapter start test", async () => {
 
   it("Content Base", async () => {
     const page = await createPage("/chapter_start");
-    expect(await page.getByRole("heading", {level: 1}).count()).toBe(1);
-    expect(await page.getByRole("paragraph").count()).toBe(1);
+    const content = await page.getByTestId("contentwrapper");
+    expect(await content.getByRole("heading", {level: 1}).count()).toBe(1);
+    expect(await content.getByRole("paragraph").count()).toBe(1);
   });
 
   it("Content position", async () => {
     const page = await createPage("/chapter_start");
 
-    const content = await page.getByTestId("contentwrapper"); // Adjust selector if needed
+    const content = await page.getByTestId("contentwrapper");
     const contentbox = await content.boundingBox();
 
     const vpw = await page.evaluate(() => window.innerWidth);
