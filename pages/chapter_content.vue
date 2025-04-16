@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const content = await queryCollection('content').path('/content_placeholder').first()
+const content = await queryCollection('content').path('/courses/placeholderCourse/1-Introduction/1-Start').first()
 </script>
 
 <template>
