@@ -8,6 +8,25 @@ describe("index test", async () => {
 
   it("index content", async () => {
     const page = await createPage("/");
-    expect(await page.content()).toContain("");
+    const content = await page.getByTestId("contentwrapper");
+
+    expect(await content.getByRole("heading", {level: 1}).count()).toBe(1);
+    expect(await content.getByRole("paragraph").count()).toBe(1);
+    expect(await content.getByRole("heading", {level: 2}).count()).toBe(1);
+  });
+
+  it("Table position", async () => {
+    const page = await createPage("/");
+    const content = await page.getByTestId("contentwrapper");
+
+    const cT = await page.getByTestId("courseTable");
+    const cTbox = await cT.boundingBox();
+
+    const vpw = await page.evaluate(() => window.innerWidth);
+
+    const elementCenterX = cTbox.x + cTbox.width / 2;
+    const vpxc = vpw / 2;
+
+    expect(elementCenterX).toBeCloseTo(vpxc, 1);
   });
 });
