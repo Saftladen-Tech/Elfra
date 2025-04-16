@@ -1,6 +1,6 @@
 ---
 title: "Placeholder Course"
-description: "Rampup - Explaination"
+description: "Rampup - Explanation"
 ---
 
 ::CParagraph
