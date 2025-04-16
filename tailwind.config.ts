@@ -4,6 +4,9 @@ import generateTailwindShades from "./utils/js/colorGen.js";
 
 export default <Partial<Config>>{
   theme: {
+    fontFamily: {
+      sans: ["Cutive Mono", ...defaultTheme.fontFamily.sans],
+    },
     extend: {
       colors: {
         prmry: generateTailwindShades("#669c35"),
