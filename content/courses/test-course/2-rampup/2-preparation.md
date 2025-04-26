@@ -1,6 +1,6 @@
 ---
-title: "Course Name xy"
-description: "Topic Name xy"
+title: "Placeholder Course"
+description: "Rampup - Preparation"
 ---
 
 ::CParagraph
@@ -11,6 +11,12 @@ Maximus pharetra sagittis fermentum morbi himenaeos. Tincidunt elementum cubilia
 ::
 ::CParagraph
 Aptent erat tellus maximus quam curae ut. Blandit posuere congue ad sapien luctus nec. Duis ipsum ligula nascetur fermentum molestie fames nascetur. Nam torquent maximus mollis aliquam mi mollis nascetur sit massa. Senectus sed mattis libero eleifend tristique. Mauris lacinia lacus ad, vivamus fermentum accumsan inceptos. Dolor himenaeos congue aliquam aptent blandit dictumst?
+::
+::CParagraph
+Ipsum eget ad est vulputate volutpat sem habitant. Tincidunt inceptos tempus facilisi tempus id facilisis nulla cursus sapien? Enim vestibulum morbi sed hendrerit gravida. Potenti eget eros dictum euismod rhoncus ultrices consectetur sociosqu? Urna velit natoque ex ad ullamcorper cras dictumst. Ornare ultricies tincidunt litora diam pulvinar magnis iaculis tristique sed. Purus augue lorem torquent litora accumsan curabitur quis lacinia. Tristique erat non ac id, rhoncus cursus. Neque vulputate dolor euismod viverra tempus mi sodales turpis. Orci montes nec habitasse, fermentum parturient lectus.
+::
+::CParagraph
+Sapien natoque torquent maecenas accumsan blandit nam integer. Platea elementum bibendum maecenas posuere sit inceptos aliquam. Eros volutpat ridiculus rhoncus; nulla a magnis. Pulvinar nec eleifend felis nam senectus. Duis orci velit nec fermentum dapibus vulputate potenti imperdiet. Ligula ullamcorper augue dui orci scelerisque parturient per convallis maximus. Fermentum himenaeos nisi duis netus nascetur ipsum turpis.
 ::
 ::CParagraph
 Ipsum eget ad est vulputate volutpat sem habitant. Tincidunt inceptos tempus facilisi tempus id facilisis nulla cursus sapien? Enim vestibulum morbi sed hendrerit gravida. Potenti eget eros dictum euismod rhoncus ultrices consectetur sociosqu? Urna velit natoque ex ad ullamcorper cras dictumst. Ornare ultricies tincidunt litora diam pulvinar magnis iaculis tristique sed. Purus augue lorem torquent litora accumsan curabitur quis lacinia. Tristique erat non ac id, rhoncus cursus. Neque vulputate dolor euismod viverra tempus mi sodales turpis. Orci montes nec habitasse, fermentum parturient lectus.

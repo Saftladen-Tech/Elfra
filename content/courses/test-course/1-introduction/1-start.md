@@ -1,6 +1,6 @@
 ---
-title: "Course Name xy"
-description: "Topic Name xy"
+title: "Placeholder Course"
+description: "Introduction - Start"
 ---
 
 ::CParagraph
