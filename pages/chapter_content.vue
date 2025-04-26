@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const content = await queryCollection('content').path('/content_placeholder').first()
+const {data: content} = await useAsyncData('/courses/test-course/3-deepdive/1-theway', () => {
+  return queryCollection('content').path('/courses/test-course/3-deepdive/1-theway').first()
+})
 </script>
 
 <template>
