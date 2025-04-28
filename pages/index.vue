@@ -1,25 +1,37 @@
 <script setup>
 import { UBadge, UTable } from '#components';
 
-const { data: home_content } = await useAsyncData('home_content', () => queryCollection('content').path("/home").first());
+const { data: crs } = await useAsyncData('navigation', () => {
+  return queryCollection('courses').all()
+})
+
+const groups = crs.value.reduce((cs, course) => {
+    if (!cs[course.title]) cs[course.title] = { 
+      title: course.title,
+      topic: course.topic,
+      text: `Course about ${course.title}`,
+    };
+    return cs;
+  }, {});
+
+console.log(groups);
+
 const columns = [
   { key: 'published', label: 'Published'},
   { key: 'topic', label: 'Topic'},
   { key: 'name', label: 'Name'},
 ];
 
-const rows = [
-  {
-    published: 'Mar 16, 16:45',
-    topic: { label: 'IT' , color: 'prmry' },
-    name: 'VLANs',
-  },
-  {
-    published: 'Apr 1, 16:20',
-    topic: { label: 'Security', color: 'err' },
-    name: 'Firewall',
+const rows = Object.values(groups).map((course) => {
+  return {
+    published: "2023-10-01",
+    topic: {
+      label: course.topic,
+      color: 'primary'
+    },
+    name: course.title,
   }
-];
+});
 </script> 
 
 <template>
