@@ -5,16 +5,16 @@ const { data: crs } = await useAsyncData('navigation', () => {
   return queryCollection('courses').all()
 })
 
-const groups = crs.value.reduce((cs, course) => {
+/* const groups = crs.value.reduce((cs, course) => {
     if (!cs[course.title]) cs[course.title] = { 
       title: course.title,
       topic: course.topic,
       text: `Course about ${course.title}`,
     };
     return cs;
-  }, {});
+  }, {}); */
 
-console.log(groups);
+/* console.log(groups); */
 
 const columns = [
   { key: 'published', label: 'Published'},
@@ -22,16 +22,16 @@ const columns = [
   { key: 'name', label: 'Name'},
 ];
 
-const rows = Object.values(groups).map((course) => {
+const rows = Object.values(crs.value).map((course) => {
   return {
-    published: "2023-10-01",
+    published: course.published,
     topic: {
       label: course.topic,
       color: 'primary'
     },
     name: course.title,
   }
-});
+})
 </script> 
 
 <template>
