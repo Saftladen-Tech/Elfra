@@ -1,4 +1,4 @@
-export const theme = {
+export const config = {
     colors: {
       primary: '#669c35',
       secondary: '#aaaaaa',
@@ -9,5 +9,9 @@ export const theme = {
       warn: '#fcc800',
       err: '#ff6467',
     },
+    institution: {
+      name: 'Saftladen',
+      web: 'https://google.de',
+    }
   };
   
