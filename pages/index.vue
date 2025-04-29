@@ -22,12 +22,26 @@ const columns = [
   { key: 'name', label: 'Name'},
 ];
 
+const topics = {
+  "it": "primary",
+  "test": "red",
+  "xyz": "blue",
+}
+
 const rows = Object.values(crs.value).map((course) => {
+  const tp = course.topic.toLowerCase()
+  let tp_clr = 'red'
+  console.log(Object.keys(topics))
+  
+  if (tp in topics){
+    tp_clr = topics[tp];
+  }
+
   return {
     published: course.published,
     topic: {
       label: course.topic,
-      color: 'primary'
+      color: tp_clr
     },
     name: course.title,
   }
