@@ -6,6 +6,10 @@ export default defineContentConfig({
       type: "page",
       source: "*.md",
     }),
+    chapters: defineCollection({
+      type: "page",
+      source: "courses/**/*.md",
+    }),
     courses: defineCollection({
       type: "data",
       source: "courses/**/*.yml",
