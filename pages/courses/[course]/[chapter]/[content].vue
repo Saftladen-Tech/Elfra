@@ -2,7 +2,7 @@
 const route = useRoute()
 const currentcourse = useCookie('selectedcourse', {readonly: true})
 
-const currentpath = "/"+ route.params.course.join("/") + "/"+ route.params.chapter + "/" + route.params.content
+const currentpath = "/courses/"+ route.params.course + "/"+ route.params.chapter + "/" + route.params.content
 
 console.log("Current path: ", currentpath)  
 
@@ -26,8 +26,8 @@ const { data } = await useAsyncData('surround', () => {
       <ContentRenderer class="text-xl font-regular" :value="page?.body" />
     </div>
     <div id="buttons" class="flex justify-between my-3">
-      <UButton color="primary" variant="outline" class="px-14 py-4" v-if="data?.[0]" :to="data[0].path + '-content'">Zurück</UButton>
-      <UButton color="primary" variant="outline" class="px-14 py-4" v-if="data?.[1]" :to="data[1].path + '-content'">Weiter</UButton>
+      <UButton color="primary" variant="outline" class="px-14 py-4" v-if="data?.[0]" :to="data[0].path">Zurück</UButton>
+      <UButton color="primary" variant="outline" class="px-14 py-4" v-if="data?.[1]" :to="data[1].path">Weiter</UButton>
     </div>
   </div>
 </template>
