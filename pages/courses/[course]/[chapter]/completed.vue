@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const route = useRoute()
+const restart_route = "/courses/" + route.params.course + "/" + route.params.chapter
 </script>
 
 <template>
@@ -13,7 +15,7 @@
         </svg>
       </div>
       <div data-testid="navigation" class="flex space-x-24">
-        <UButton variant="soft" icon="i-heroicons-arrow-left" class="flex justify-center items-center  p-4 w-56 text-center text-2xl">Wiederholen</UButton>
+        <UButton variant="soft" icon="i-heroicons-arrow-left" class="flex justify-center items-center  p-4 w-56 text-center text-2xl" :to="restart_route">Wiederholen</UButton>
         <UButton variant="soft" trailing-icon="i-heroicons-arrow-right" class="flex justify-center items-center p-4 w-56 text-center text-2xl">Weiter</UButton>
       </div>
     </div>
