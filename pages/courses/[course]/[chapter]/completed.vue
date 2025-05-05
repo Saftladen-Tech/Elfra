@@ -16,8 +16,6 @@ const { data: chapters } = await useAsyncData("chapters", () => {
 const currentchapter_i = chapters?.value.findIndex(obj => obj.title === currentchapter)
 const nextchapter = currentchapter_i + 1 < chapters.value.length ? chapters.value[currentchapter_i + 1].title : null
 
-console.log(nextchapter)
-
 const nextroute = "/courses/" + route.params.course + "/" + nextchapter
 
 </script>
