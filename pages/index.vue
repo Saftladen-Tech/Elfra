@@ -6,7 +6,9 @@ const currentcourse = useCookie('selectedcourse')
 currentcourse.value = null
 
 const { data: crs } = await useAsyncData('navigation', () => {
-  return queryCollection('courses').all()
+  return queryCollection('folders')
+  .where('type', '==', "course")
+  .all()
 })
 
 const columns = [

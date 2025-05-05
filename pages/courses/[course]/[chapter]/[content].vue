@@ -5,13 +5,13 @@ const currentcourse = useCookie('selectedcourse', {readonly: true})
 currentcourse.value = route.params.course
 
 const { data: page } = await useAsyncData(route.path, () => {
-  return queryCollection('chapters').path(route.path)
+  return queryCollection('course_content').path(route.path)
     .where('path', 'LIKE', "%/"+ currentcourse.value +"/%")
     .first()
 })
 
 const { data } = await useAsyncData('surround', () => {
-  return queryCollectionItemSurroundings('chapters', route.path)
+  return queryCollectionItemSurroundings('course_content', route.path)
     .where('path', 'LIKE', "%/"+ currentcourse.value +"/%")
 })
 </script>
