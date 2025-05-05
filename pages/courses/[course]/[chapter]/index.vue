@@ -3,10 +3,11 @@ const route = useRoute()
 const currentcourse = useCookie('selectedcourse')
 
 currentcourse.value = route.params.course
+const currentchapter = route.params.chapter
 
 const { data: start_page } = await useAsyncData("start_page", () => {
   return queryCollection('course_content')
-    .where('path', 'LIKE', "%/"+ currentcourse.value +"/%")
+    .where('path', 'LIKE', "%/"+ currentcourse.value + "/" + currentchapter + "/%")
     .first()
 })
 

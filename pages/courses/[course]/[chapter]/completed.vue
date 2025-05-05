@@ -18,12 +18,7 @@ const nextchapter = currentchapter_i + 1 < chapters.value.length ? chapters.valu
 
 console.log(nextchapter)
 
-const { data: next_page } = await useAsyncData("next_page", () => {
-  return queryCollection('course_content')
-    .where('path', 'LIKE', "%/"+ currentcourse.value +"/"+ nextchapter +"/%")
-    .first()
-})
-
+const nextroute = "/courses/" + route.params.course + "/" + nextchapter
 
 </script>
 
@@ -40,7 +35,8 @@ const { data: next_page } = await useAsyncData("next_page", () => {
       </div>
       <div data-testid="navigation" class="flex space-x-24">
         <UButton variant="soft" icon="i-heroicons-arrow-left" class="flex justify-center items-center  p-4 w-56 text-center text-2xl" :to="restart_route">Wiederholen</UButton>
-        <UButton variant="soft" trailing-icon="i-heroicons-arrow-right" class="flex justify-center items-center p-4 w-56 text-center text-2xl" :to="next_page?.path">Weiter</UButton>
+        <UButton variant="soft" trailing-icon="i-heroicons-arrow-right" class="flex justify-center items-center p-4 w-56 text-center text-2xl" v-if="nextchapter" :to="nextroute">Weiter</UButton>
+        <UButton variant="soft" trailing-icon="i-heroicons-arrow-right" class="flex justify-center items-center p-4 w-56 text-center text-2xl" v-else :to="'/courses/'+route.params.course+'/finished'">Weiter</UButton>
       </div>
     </div>
   </div>

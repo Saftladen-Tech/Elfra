@@ -3,16 +3,18 @@ const route = useRoute()
 const currentcourse = useCookie('selectedcourse')
 
 currentcourse.value = route.params.course
+const currentchapter = route.params.chapter
+const currentchapterroute = "/courses/" + currentcourse.value + "/" + currentchapter
 
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('course_content').path(route.path)
-    .where('path', 'LIKE', "%/"+ currentcourse.value +"/%")
+    .where('path', 'LIKE', "%/"+ currentcourse.value + "/" + currentchapter + "/%")
     .first()
 })
 
 const { data } = await useAsyncData('surround', () => {
   return queryCollectionItemSurroundings('course_content', route.path)
-    .where('path', 'LIKE', "%/"+ currentcourse.value +"/%")
+    .where('path', 'LIKE', "%/"+ currentcourse.value + "/" + currentchapter + "/%")
 })
 </script>
 
@@ -26,6 +28,7 @@ const { data } = await useAsyncData('surround', () => {
     <div id="buttons" class="flex justify-between my-3">
       <UButton color="primary" variant="outline" class="px-14 py-4" v-if="data?.[0]" :to="data[0].path">Zurück</UButton>
       <UButton color="primary" variant="outline" class="px-14 py-4" v-if="data?.[1]" :to="data[1].path">Weiter</UButton>
+      <UButton color="primary" variant="outline" class="px-14 py-4" v-else :to="currentchapterroute + '/completed'" >Weiter</UButton>
     </div>
   </div>
 </template>
