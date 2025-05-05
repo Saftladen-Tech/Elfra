@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'check-selection',
+})
 const route = useRoute()
 const currentcourse = useCookie('selectedcourse')
 

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-  definePageMeta({
-    layout: 'just-footer'
-  })
+definePageMeta({
+  middleware: 'check-selection',
+  layout: 'just-footer'
+})
 
   const route = useRoute()
   const restart_route = "/courses/" + route.params.course
