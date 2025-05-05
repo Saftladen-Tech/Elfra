@@ -21,7 +21,6 @@ const topics = {
 const rows = Object.values(crs.value).map((course) => {
   const tp = course.topic.toLowerCase()
   let tp_clr = 'red'
-  console.log(Object.keys(topics))
   
   if (tp in topics){
     tp_clr = topics[tp];
@@ -34,7 +33,7 @@ const rows = Object.values(crs.value).map((course) => {
       color: tp_clr
     },
     name: course.title,
-    path: "/courses/"+ course.title + "/course_start"
+    path: "/courses/"+ course.title + "-start"
   }
 })
 </script> 
