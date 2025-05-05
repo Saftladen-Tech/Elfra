@@ -27,6 +27,7 @@ const { data } = await useAsyncData('surround', () => {
     </div>
     <div id="buttons" class="flex justify-between my-3">
       <UButton color="primary" variant="outline" class="px-14 py-4" v-if="data?.[0]" :to="data[0].path">Zurück</UButton>
+      <UButton color="primary" variant="outline" class="px-14 py-4" v-else disabled :to="data[0].path">Zurück</UButton>
       <UButton color="primary" variant="outline" class="px-14 py-4" v-if="data?.[1]" :to="data[1].path">Weiter</UButton>
       <UButton color="primary" variant="outline" class="px-14 py-4" v-else :to="currentchapterroute + '/completed'" >Weiter</UButton>
     </div>
