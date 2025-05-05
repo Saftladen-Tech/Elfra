@@ -15,7 +15,7 @@ const columns = [
   { key: 'published', label: 'Published'},
   { key: 'topic', label: 'Topic'},
   { key: 'name', label: 'Name'},
-  { key: "path", label: ""}
+  { key: "path"}
 ];
 
 const topics = {
@@ -39,7 +39,7 @@ const rows = Object.values(crs.value).map((course) => {
       color: tp_clr
     },
     name: course.title,
-    path: "/courses/"+ course.title
+    path: "/courses/"+ course.title,
   }
 })
 </script> 
@@ -51,12 +51,14 @@ const rows = Object.values(crs.value).map((course) => {
     <UDivider icon="i-heroicons-book-open" size="sm" :ui="{border:{base:'dark:border-gray-400'}, container:{base:'dark:text-white'}}"></UDivider>
     <h2 class="text-3xl mt-6 mb-4">Webbasedtrainings and Content</h2>
 
-    <UTable data-testid="courseTable" :rows="rows" :columns="columns" class="rounded-lg border border-gray-400" :ui="{td: {color:'dark:text-gray-50'}, divide:'dark:divide-gray-300', tbody:'dark:divide-gray-400'}">
+    <UTable data-testid="courseTable" :rows="rows" :columns="columns" class="rounded-lg border border-gray-400" :ui="{tr: {base: 'group hover:bg-black/5 dark:hover:bg-white/5'},td: {color:'dark:text-gray-50'}, divide:'dark:divide-gray-300', tbody:'dark:divide-gray-400'}">
       <template #topic-data="{ row }">
         <UBadge :label="row.topic.label" :color="row.topic.color" variant="soft" ></UBadge>
       </template>
       <template #path-data="{ row }">
-        <UButton color="primary" variant="outline" class="px-14 py-4" :to="row.path">Start</UButton>
+        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <UButton color="primary" variant="outline" class="w-full justify-center py-2" :to="row.path">Start</UButton>
+        </div>
       </template>
     </UTable>
   </div>
