@@ -5,21 +5,11 @@ const { data: crs } = await useAsyncData('navigation', () => {
   return queryCollection('courses').all()
 })
 
-/* const groups = crs.value.reduce((cs, course) => {
-    if (!cs[course.title]) cs[course.title] = { 
-      title: course.title,
-      topic: course.topic,
-      text: `Course about ${course.title}`,
-    };
-    return cs;
-  }, {}); */
-
-/* console.log(groups); */
-
 const columns = [
   { key: 'published', label: 'Published'},
   { key: 'topic', label: 'Topic'},
   { key: 'name', label: 'Name'},
+  { key: "path", label: ""}
 ];
 
 const topics = {
@@ -44,6 +34,7 @@ const rows = Object.values(crs.value).map((course) => {
       color: tp_clr
     },
     name: course.title,
+    path: "/courses/"+ course.title + "/course_start"
   }
 })
 </script> 
@@ -58,6 +49,9 @@ const rows = Object.values(crs.value).map((course) => {
     <UTable data-testid="courseTable" :rows="rows" :columns="columns" class="rounded-lg border border-gray-400" :ui="{td: {color:'dark:text-gray-50'}, divide:'dark:divide-gray-300', tbody:'dark:divide-gray-400'}">
       <template #topic-data="{ row }">
         <UBadge :label="row.topic.label" :color="row.topic.color" variant="soft" ></UBadge>
+      </template>
+      <template #path-data="{ row }">
+        <UButton color="primary" variant="outline" class="px-14 py-4" :to="row.path">Start</UButton>
       </template>
     </UTable>
   </div>

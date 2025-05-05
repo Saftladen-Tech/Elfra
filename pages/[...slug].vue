@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
+const currentcourse = useCookie('selectedcourse', {readonly: true})
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('chapters').path(route.path)
-    .where('path', 'LIKE', "%/test-course/%")
+    .where('path', 'LIKE', "%/"+ currentcourse +"/%")
     .first()
 })
 
