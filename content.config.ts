@@ -16,6 +16,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         topic: z.string(),
+        description: z.string(),
         published: z.string(),
         type: z.enum(["chapter", "course"]),
       }),
