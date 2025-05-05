@@ -13,10 +13,12 @@ const { data: start_page } = await useAsyncData("start_page", () => {
 
 const { data: chapters } = await useAsyncData("chapters", () => {
   return queryCollection('folders')
-    .where('stem', 'LIKE', "%/"+ currentcourse.value + "/" + currentchapter + "/%")
-    .andWhere(query => query.where('type', '=', "chapter"))
+    .where('stem', 'LIKE', "%/"+ currentcourse.value + "/%")
+    .andWhere(query => query.where('type', '=', "chapter").where("title", "=", currentchapter))
     .first()
 })
+
+console.log(chapters.value?.description)
 
 </script>
 
