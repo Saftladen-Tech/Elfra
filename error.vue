@@ -13,8 +13,8 @@ const props = defineProps({
       <div data-testid="contentwrapper" class="flex flex-col">
         <p class="text-prmry-500 text-9xl font-bold text-center">{{ error.statusCode }}</p>
         <p class="text-6xl">{{ error.statusMessage }}</p>
+        <UButton color="primary" variant="outline" class="mt-10 px-14 py-4 justify-center" to="/">Home</UButton>
       </div>
-      <UButton color="primary" variant="outline" class="px-14 py-4" to="/">Home</UButton>
     </div>
     <footer-costum />
   </div>
