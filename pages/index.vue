@@ -33,7 +33,7 @@ const rows = Object.values(crs.value).map((course) => {
       color: tp_clr
     },
     name: course.title,
-    path: "/courses/"+ course.title + "-start"
+    path: "/courses/"+ course.title + "/start"
   }
 })
 </script> 

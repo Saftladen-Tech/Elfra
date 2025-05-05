@@ -2,7 +2,7 @@
 const route = useRoute()
 const currentcourse = useCookie('selectedcourse', {readonly: true})
 
-const currentpath = "/"+ route.params.slug.join('/')
+const currentpath = "/"+ route.params.course.join("/") + "/"+ route.params.chapter + "/" + route.params.content
 
 console.log("Current path: ", currentpath)  
 
