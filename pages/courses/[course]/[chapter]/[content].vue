@@ -2,18 +2,16 @@
 const route = useRoute()
 const currentcourse = useCookie('selectedcourse', {readonly: true})
 
-const currentpath = "/courses/"+ route.params.course + "/"+ route.params.chapter + "/" + route.params.content
+currentcourse.value = route.params.course
 
-console.log("Current path: ", currentpath)  
-
-const { data: page } = await useAsyncData(currentpath, () => {
-  return queryCollection('chapters').path(currentpath)
+const { data: page } = await useAsyncData(route.path, () => {
+  return queryCollection('chapters').path(route.path)
     .where('path', 'LIKE', "%/"+ currentcourse.value +"/%")
     .first()
 })
 
 const { data } = await useAsyncData('surround', () => {
-  return queryCollectionItemSurroundings('chapters', currentpath)
+  return queryCollectionItemSurroundings('chapters', route.path)
     .where('path', 'LIKE', "%/"+ currentcourse.value +"/%")
 })
 </script>

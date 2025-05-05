@@ -1,6 +1,10 @@
 <script setup>
 import { UBadge, UTable } from '#components';
 
+const currentcourse = useCookie('selectedcourse')
+
+currentcourse.value = null
+
 const { data: crs } = await useAsyncData('navigation', () => {
   return queryCollection('courses').all()
 })
