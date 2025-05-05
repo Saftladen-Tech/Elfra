@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
+import { UButton } from '#components';
 
 const props = defineProps({
   error: Object as () => NuxtError
@@ -12,7 +13,8 @@ const props = defineProps({
       <div data-testid="contentwrapper" class="flex flex-col">
         <p class="text-prmry-500 text-9xl font-bold text-center">{{ error.statusCode }}</p>
         <p class="text-6xl">{{ error.statusMessage }}</p>
-    </div>
+      </div>
+      <UButton color="primary" variant="outline" class="px-14 py-4" to="/">Home</UButton>
     </div>
     <footer-costum />
   </div>
