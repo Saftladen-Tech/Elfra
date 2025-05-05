@@ -3,7 +3,7 @@ import { UBadge, UTable } from '#components';
 
 const currentcourse = useCookie('selectedcourse')
 
-currentcourse.value = null
+currentcourse.value = "nothing-selected"
 
 const { data: crs } = await useAsyncData('navigation', () => {
   return queryCollection('folders')
