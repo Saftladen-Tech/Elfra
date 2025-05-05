@@ -17,9 +17,6 @@ const { data: chapters } = await useAsyncData("chapters", () => {
     .andWhere(query => query.where('type', '=', "chapter").where("title", "=", currentchapter))
     .first()
 })
-
-console.log(chapters.value?.description)
-
 </script>
 
 

@@ -12,7 +12,6 @@ const { data: chapters } = await useAsyncData("chapters", () => {
 })
 
 const start_chapter = chapters.value?.title
-console.log("Start chapter: ", start_chapter)
 const start_route = "/courses/" + currentcourse.value + "/" + start_chapter
 </script>
 
