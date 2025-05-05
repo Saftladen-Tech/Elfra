@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-const currentcourse = useCookie('selectedcourse', {readonly: true})
+const currentcourse = useCookie('selectedcourse')
 
 currentcourse.value = route.params.course
 

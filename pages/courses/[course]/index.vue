@@ -4,15 +4,16 @@ const currentcourse = useCookie('selectedcourse')
 
 currentcourse.value = route.params.course
 
-const { data: start_page } = await useAsyncData("start_page", () => {
-  return queryCollection('course_content')
-    .where('path', 'LIKE', "%/"+ currentcourse.value +"/%")
+const { data: chapters } = await useAsyncData("chapters", () => {
+  return queryCollection('folders')
+    .where('stem', 'LIKE', "%/"+ currentcourse.value +"/%")
+    .andWhere(query => query.where('type', '=', "chapter"))
     .first()
 })
 
-const start_chapter = start_page.value?.path
+const start_chapter = chapters.value?.title
 console.log("Start chapter: ", start_chapter)
-const start_route = "/courses/" + currentcourse.value + "/" + start_chapter?.split('/').slice(-2)[0]
+const start_route = "/courses/" + currentcourse.value + "/" + start_chapter
 </script>
 
 
