@@ -51,13 +51,13 @@ const rows = Object.values(crs.value).map((course) => {
     <UDivider icon="i-heroicons-book-open" size="sm" :ui="{border:{base:'dark:border-gray-400'}, container:{base:'dark:text-white'}}"></UDivider>
     <h2 class="text-3xl mt-6 mb-4">Webbasedtrainings and Content</h2>
 
-    <UTable data-testid="courseTable" :rows="rows" :columns="columns" class="rounded-lg border border-gray-400" :ui="{tr: {base: 'group'},td: {color:'dark:text-gray-50', base: 'group-hover:bg-black/5 dark:group-hover:bg-white/5'}, divide:'dark:divide-gray-300', tbody:'dark:divide-gray-400'}">
+    <UTable data-testid="courseTable" :rows="rows" :columns="columns" class="rounded-lg border border-gray-400" :ui="{tr: {base: 'group relative'},td: {color:'dark:text-gray-50', base: 'group-hover:bg-black/5 dark:group-hover:bg-white/5 last:w-0'}, divide:'dark:divide-gray-300', tbody:'dark:divide-gray-400'}">
       <template #topic-data="{ row }">
         <UBadge :label="row.topic.label" :color="row.topic.color" variant="soft" ></UBadge>
       </template>
       <template #path-data="{ row }">
-        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <UButton color="primary" variant="outline" class="w-full justify-center py-2" :to="row.path">Start</UButton>
+        <div class="absolute flex align-center p-2 w-0 h-full top-0 left-0 opacity-0 group-hover:opacity-100 group-hover:w-full transition-all duration-500">
+          <UButton color="primary" variant="solid" class="w-full justify-center" :to="row.path">Start</UButton>
         </div>
       </template>
     </UTable>
