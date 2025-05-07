@@ -51,7 +51,7 @@ const rows = Object.values(crs.value).map((course) => {
     <UDivider icon="i-heroicons-book-open" size="sm" :ui="{border:{base:'dark:border-gray-400'}, container:{base:'dark:text-white'}}"></UDivider>
     <h2 class="text-3xl mt-6 mb-4">Webbasedtrainings and Content</h2>
 
-    <UTable data-testid="courseTable" :rows="rows" :columns="columns" class="rounded-lg border border-gray-400" :ui="{tr: {base: 'group hover:bg-black/5 dark:hover:bg-white/5'},td: {color:'dark:text-gray-50'}, divide:'dark:divide-gray-300', tbody:'dark:divide-gray-400'}">
+    <UTable data-testid="courseTable" :rows="rows" :columns="columns" class="rounded-lg border border-gray-400" :ui="{tr: {base: 'group'},td: {color:'dark:text-gray-50', base: 'group-hover:bg-black/5 dark:group-hover:bg-white/5'}, divide:'dark:divide-gray-300', tbody:'dark:divide-gray-400'}">
       <template #topic-data="{ row }">
         <UBadge :label="row.topic.label" :color="row.topic.color" variant="soft" ></UBadge>
       </template>
