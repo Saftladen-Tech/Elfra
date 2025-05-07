@@ -12,9 +12,9 @@ const { data: crs } = await useAsyncData('navigation', () => {
 })
 
 const columns = [
-  { key: 'published', label: 'Published'},
-  { key: 'topic', label: 'Topic'},
   { key: 'name', label: 'Name'},
+  { key: 'topic', label: 'Topic'},
+  { key: 'published', label: 'Published'},
   { key: "path"} // Allways use as last column! Last Column is always hidden and absolute!
 ];
 
