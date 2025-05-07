@@ -15,7 +15,7 @@ const columns = [
   { key: 'published', label: 'Published'},
   { key: 'topic', label: 'Topic'},
   { key: 'name', label: 'Name'},
-  { key: "path"}
+  { key: "path"} // Allways use as last column! Last Column is always hidden and absolute!
 ];
 
 const topics = {
