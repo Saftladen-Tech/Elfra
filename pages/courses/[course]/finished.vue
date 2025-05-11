@@ -1,7 +1,11 @@
 <script setup lang="ts">
-  definePageMeta({
-    layout: 'just-footer'
-  })
+definePageMeta({
+  middleware: 'check-selection',
+  layout: 'just-footer'
+})
+
+  const route = useRoute()
+  const restart_route = "/courses/" + route.params.course
 </script>
 
 <template>
@@ -17,8 +21,8 @@
         </svg>
       </div>  
       <div data-testid="navigation" class="flex space-x-24">
-        <UButton variant="soft" icon="i-heroicons-arrow-path" class="flex justify-center items-center  p-4 w-56 text-center text-2xl">Neustarten</UButton>
-        <UButton variant="soft" trailing-icon="i-heroicons-check" class="flex justify-center items-center p-4 w-56 text-center text-2xl">Beenden</UButton>
+        <UButton variant="soft" icon="i-heroicons-arrow-path" class="flex justify-center items-center  p-4 w-56 text-center text-2xl" :to="restart_route">Neustarten</UButton>
+        <UButton variant="soft" trailing-icon="i-heroicons-check" class="flex justify-center items-center p-4 w-56 text-center text-2xl" to="/">Beenden</UButton>
       </div>
     </div>
   </div>

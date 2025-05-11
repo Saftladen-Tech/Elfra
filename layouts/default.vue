@@ -6,11 +6,11 @@ const links = ref([
     icon: 'i-heroicons-home',
     to: '/',
   },
-  {
+  /* {
     label: 'About',
     icon: 'i-heroicons-information-circle',
     to: '/chapter_content',
-  },
+  }, */
 ]);
 </script>
 
