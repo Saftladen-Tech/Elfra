@@ -27,7 +27,7 @@
 
 <template>
   <div class="flex grow justify-center items-center">
-    <div class="flex flex-col min-w-96 p-6 border border-drk-600 rounded-lg space-y-6 dark:shadow-glow-dark shadow-glow-bright">
+    <div data-testid="contentwrapper" class="flex flex-col min-w-96 p-6 border border-drk-600 rounded-lg space-y-6 dark:shadow-glow-dark shadow-glow-bright">
       <div>
         <h3>Login</h3>
       </div>
@@ -46,7 +46,7 @@
         </Transition>
       </UForm>
       <UDivider label="OR" v-if="selectedProviders.length != 0"/>
-      <div id="authProviders" class="flex justify-center space-x-2 items-center" v-if="selectedProviders.length != 0">
+      <div data-testid="authProviders" id="authProviders" class="flex justify-center space-x-2 items-center" v-if="selectedProviders.length != 0">
         <UButton v-for="p in selectedProviders" :icon="p.icon" :to="p.url" variant="soft" color="drk" size="xl" :ui="{ rounded: 'rounded-full' }"/>
       </div>
     </div>

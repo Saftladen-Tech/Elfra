@@ -5,6 +5,9 @@ import { config as colorConfig} from "./config.js";
 
 export default <Partial<Config>>{
   theme: {
+    fontFamily: {
+      sans: ["Cutive Mono", ...defaultTheme.fontFamily.sans],
+    },
     extend: {
       colors: {
         prmry: generateTailwindShades(colorConfig.colors.primary),
