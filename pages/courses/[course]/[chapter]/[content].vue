@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import courseProgress from '~/composables/course_progress'
+
 definePageMeta({
   middleware: 'check-selection',
 })
@@ -19,6 +21,8 @@ const { data } = await useAsyncData('surround', () => {
   return queryCollectionItemSurroundings('course_content', route.path)
     .where('path', 'LIKE', "%/"+ currentcourse.value + "/" + currentchapter + "/%")
 })
+
+courseProgress(page.value?.title)
 </script>
 
 <template>

@@ -6,6 +6,8 @@ definePageMeta({
 
   const route = useRoute()
   const restart_route = "/courses/" + route.params.course
+
+  courseProgress("finished")
 </script>
 
 <template>
