@@ -1,5 +1,6 @@
 <script setup>
 import { UBadge, UTable } from '#components';
+import {config} from '@/config';
 
 const currentcourse = useCookie('selectedcourse')
 
@@ -18,11 +19,10 @@ const columns = [
   { key: "path"} // Allways use as last column! Last Column is always hidden and absolute!
 ];
 
-const topics = {
-  "it": "primary",
-  "test": "red",
-  "xyz": "blue",
-}
+const topics = config.topics.reduce((acc, topic) => {
+  acc[topic.name.toLowerCase()] = topic.color;
+  return acc;
+}, {});
 
 const rows = Object.values(crs.value).map((course) => {
   const tp = course.topic.toLowerCase()

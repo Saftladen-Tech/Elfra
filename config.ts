@@ -1,7 +1,7 @@
 export const config = {
     colors: {
       primary: '#669c35',
-      secondary: '#aaaaaa',
+      secondary: '#0dd479',
       accnt: '#fde1af',
       dark: '#0e0e11',
       bright: '#ffffff',
@@ -12,6 +12,10 @@ export const config = {
     institution: {
       name: 'Saftladen',
       web: 'https://google.de',
-    }
+    },
+    topics: [
+      { name: 'IT', color: 'red' },
+      { name: 'xyz', color: 'green' },
+    ],
   };
   
