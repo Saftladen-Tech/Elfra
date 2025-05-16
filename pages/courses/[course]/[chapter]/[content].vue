@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import courseProgress from '~/composables/course_progress'
 
 definePageMeta({
   middleware: 'check-selection',
@@ -22,7 +21,8 @@ const { data } = await useAsyncData('surround', () => {
     .where('path', 'LIKE', "%/"+ currentcourse.value + "/" + currentchapter + "/%")
 })
 
-courseProgress(page.value?.title)
+setProg(page.value?.title)
+
 </script>
 
 <template>

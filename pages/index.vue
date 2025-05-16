@@ -2,11 +2,11 @@
 import { UBadge, UTable } from '#components';
 
 const currentcourse = useCookie('selectedcourse')
-const progress = useCookie('course_progress')
-
 
 currentcourse.value = "nothing-selected"
-progress.value = []
+
+const progress = getProg("test-course")
+console.log("Test-course Progress: ", progress)
 
 const { data: crs } = await useAsyncData('navigation', () => {
   return queryCollection('folders')
