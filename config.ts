@@ -11,8 +11,8 @@ export const config = {
     warn: "#fcc800",
     error: "#ff6467",
   },
-  font: '',
-  fontprovider: '',
+  font: 'Roboto',
+  fontprovider: 'google',
   auth: {
     enabled: false,
   },
