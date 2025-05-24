@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import {config} from "./config.js";
 export default defineNuxtConfig({
   modules: ["@nuxt/content", "@nuxt/ui", "@nuxt/fonts"],
   colorMode: {
@@ -9,7 +10,7 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   fonts: {
     families: [
-      {name: "Cutive Mono", provider: 'google'}
+      {name: config.font, provider: config.fontprovider }
     ]
   },
 });
