@@ -58,10 +58,7 @@ const links = ref([
       <div class="flex justify-center item-center mx-10">
         <ChangeColorBtn />
       </div>
-      <UDropdown v-if="authenticationEnabled" :items="useritems" :ui="{background: 'bg-white dark:bg-drk-500', item: {icon: {
-      active: 'text-err-500 dark:text-err-400',
-      inactive: 'text-gray-700 dark:text-gray-200'
-    },}}" :popper="{ placement: 'bottom-start' }">
+      <UDropdown v-if="authenticationEnabled" :items="useritems" :ui="{background: 'bg-white dark:bg-drk-500', item: {icon: {active: 'text-err-500 dark:text-err-400',inactive: 'text-gray-700 dark:text-gray-200'},}}" :popper="{ placement: 'bottom-start' }">
         <UButton color="scndry" variant="ghost">
           <template #leading>
             <UAvatar data-testid="avatar" :alt="liveuser?.email" size="2xl" />
