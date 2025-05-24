@@ -57,7 +57,7 @@
         </Transition>
       </UForm>
       <UDivider label="OR" v-if="selectedProviders.length != 0"/>
-      <div v-else class="py-5"></div>
+      <div v-else class="py-2"></div>
       <div data-testid="authProviders" id="authProviders" class="flex justify-center space-x-2 items-center" v-if="selectedProviders.length != 0">
         <UButton v-for="p in selectedProviders" :icon="p.icon" :to="p.url" variant="soft" color="drk" size="xl" :ui="{ rounded: 'rounded-full' }"/>
       </div>
