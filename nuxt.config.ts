@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import {config} from "./config.js";
 export default defineNuxtConfig({
-  modules: ["@nuxt/content", "@nuxt/ui", "@nuxt/fonts"],
+  modules: [
+    "@nuxt/content",
+    "@nuxt/ui",
+    "@nuxt/fonts",
+    "@nuxtjs/supabase",
+  ],
   colorMode: {
     preference: "system",
   },
