@@ -1,12 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import {config} from "./config.js";
+import { config } from "./config.js";
 export default defineNuxtConfig({
-  modules: [
-    "@nuxt/content",
-    "@nuxt/ui",
-    "@nuxt/fonts",
-    "@nuxtjs/supabase",
-  ],
+  modules: ["@nuxt/content", "@nuxt/ui", "@nuxt/fonts", "@nuxtjs/supabase"],
+  supabase: {
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
+    redirectOptions: {
+      login: "/login",
+      callback: "/confirm",
+      include: undefined,
+      exclude: [],
+      saveRedirectToCookie: true,
+    },
+  },
   colorMode: {
     preference: "system",
   },
@@ -14,8 +20,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   fonts: {
-    families: [
-      {name: config.font, provider: config.fontprovider }
-    ]
+    families: [{ name: config.font, provider: config.fontprovider }],
   },
 });

@@ -24,8 +24,8 @@
   async function onSubmit(event: FormSubmitEvent<any>) {
     // Do something with data
     const {data, error } = await supabase.auth.signInWithPassword({
-      email: event.data.email.value,
-      password: event.data.password.value,
+      email: event.data.email,
+      password: event.data.password,
     })
     if (error) {
       console.log(error)
