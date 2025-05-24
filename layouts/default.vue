@@ -1,5 +1,20 @@
 <script setup lang="ts">
+import { config } from "../config.js";
 import ChangeColorBtn from '~/components/ChangeColorBtn.vue';
+
+const authenticationEnabled = config?.auth?.enabled ?? false;
+
+if (authenticationEnabled === false) {
+  console.warn("User authentication is disabled.");
+} else {
+  const user = useSupabaseUser()
+  const useritems = [
+    [{
+      label: user?.email || 'Guest',
+    }],
+  ]
+}
+
 const links = ref([
   {
     label: 'Home',
@@ -22,7 +37,9 @@ const links = ref([
       <div class="flex justify-center item-center mx-10">
         <ChangeColorBtn />
       </div>
-      <UAvatar data-testid="avatar" alt="avatar" size="2xl" />
+      <UDropdown v-if="authenticationEnabled" :items="useritems" :popper="{ placement: 'bottom-start' }">
+        <UAvatar data-testid="avatar" :alt="user?.email" size="2xl" />
+      </UDropdown>
     </header>
     <slot />
     <footer-costum />

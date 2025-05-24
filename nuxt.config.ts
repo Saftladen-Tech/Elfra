@@ -1,7 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { config } from "./config.js";
+
+let authprovider = "";
+
+if (config.auth?.enabled) {
+  authprovider = "@nuxtjs/supabase";
+}
+
 export default defineNuxtConfig({
-  modules: ["@nuxt/content", "@nuxt/ui", "@nuxt/fonts", "@nuxtjs/supabase"],
+  modules: ["@nuxt/content", "@nuxt/ui", "@nuxt/fonts", authprovider],
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,

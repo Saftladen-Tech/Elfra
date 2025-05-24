@@ -11,17 +11,17 @@ export const config = {
     warn: "#fcc800",
     error: "#ff6467",
   },
-  font: 'Roboto',
-  fontprovider: 'google',
+  font: "Roboto",
+  fontprovider: "google",
   auth: {
-    enabled: false,
+    enabled: true,
   },
   institution: {
-    name: 'saftladen',
-    web: 'saftladen.de',
+    name: "saftladen",
+    web: "saftladen.de",
   },
   topics: [
-    { name: 'IT', color: 'pink' },
-    { name: 'Security', color: 'purple' },
+    { name: "IT", color: "pink" },
+    { name: "Security", color: "purple" },
   ],
 };
