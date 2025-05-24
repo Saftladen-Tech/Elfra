@@ -3,6 +3,8 @@
     layout: 'heading-footer'
   })
 
+  const supabase = useSupabaseClient()
+
   import type { FormError, FormSubmitEvent } from '#ui/types'
 
   const selectedProviders = authProviders.filter(provider => provider.active)
@@ -21,6 +23,15 @@
 
   async function onSubmit(event: FormSubmitEvent<any>) {
     // Do something with data
+    const {data, error } = await supabase.auth.signInWithPassword({
+      email: event.data.email.value,
+      password: event.data.password.value,
+    })
+    if (error) {
+      console.log(error)
+    } else {
+      navigateTo("/")
+    }
     console.log(event.data)
   }
 </script>
