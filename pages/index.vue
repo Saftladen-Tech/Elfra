@@ -56,7 +56,7 @@ const rows = Object.values(crs.value).map((course) => {
         <UBadge :label="row.topic.label" :color="row.topic.color" variant="soft" ></UBadge>
       </template>
       <template #path-data="{ row }">
-        <div class="flex align-center p-2 h-full w-full transition-all duration-500">
+        <div class="flex items-center p-2 h-full w-full transition-all duration-500">
           <UButton color="primary" variant="solid" class="w-full justify-center" :to="row.path">Start</UButton>
         </div>
       </template>
