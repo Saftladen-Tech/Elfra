@@ -2,15 +2,36 @@
 import { config } from "../config.js";
 import ChangeColorBtn from '~/components/ChangeColorBtn.vue';
 
+const liveuser = ref()
+const useritems = ref()
+
 const authenticationEnabled = config?.auth?.enabled ?? false;
 
 if (authenticationEnabled === false) {
   console.warn("User authentication is disabled.");
 } else {
   const user = useSupabaseUser()
-  const useritems = [
+  const supabase = useSupabaseClient()
+  const LogOut = async () => {
+  console.log("sign out user")
+    const { error } = await supabase.auth.signOut()
+    if (error) {
+      console.log(error)
+    } else {
+      navigateTo("/login")
+    }
+  }
+  liveuser.value = user.value
+  useritems.value = [
     [{
-      label: user?.email || 'Guest',
+      label: liveuser?.value.email || 'Guest',
+    }],
+    [{
+    label: 'Logout',
+    icon: 'i-heroicons-arrow-left-end-on-rectangle-20-solid',
+    click: () => {
+      LogOut()
+    }
     }],
   ]
 }
@@ -37,8 +58,15 @@ const links = ref([
       <div class="flex justify-center item-center mx-10">
         <ChangeColorBtn />
       </div>
-      <UDropdown v-if="authenticationEnabled" :items="useritems" :popper="{ placement: 'bottom-start' }">
-        <UAvatar data-testid="avatar" :alt="user?.email" size="2xl" />
+      <UDropdown v-if="authenticationEnabled" :items="useritems" :ui="{background: 'bg-white dark:bg-drk-500', item: {icon: {
+      active: 'text-err-500 dark:text-err-400',
+      inactive: 'text-gray-700 dark:text-gray-200'
+    },}}" :popper="{ placement: 'bottom-start' }">
+        <UButton color="scndry" variant="ghost">
+          <template #leading>
+            <UAvatar data-testid="avatar" :alt="liveuser?.email" size="2xl" />
+          </template>
+        </UButton>
       </UDropdown>
     </header>
     <slot />
