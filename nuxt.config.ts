@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       callback: "/confirm",
       include: undefined,
       exclude: [],
-      saveRedirectToCookie: true,
+      saveRedirectToCookie: false,
     },
   },
   colorMode: {

@@ -5,6 +5,7 @@
 
   const supabase = useSupabaseClient()
   let authprocess = ref(false)
+  let Oauthprocess = ref(false)
   let errorAuth = ref(false)
   let errorText = ref()
 
@@ -25,6 +26,7 @@
   }
 
   async function onAuthProviderClick(prvdr: any) {
+    Oauthprocess.value = true
     console.log("onAuthProviderClick", prvdr)
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: prvdr,
@@ -83,7 +85,8 @@
       </UForm>
       <UDivider label="OR" v-if="selectedProviders.length != 0"/>
       <div v-else class="py-2"></div>
-      <div data-testid="authProviders" id="authProviders" class="flex justify-center space-x-2 items-center" v-if="selectedProviders.length != 0">
+      <div data-testid="authProviders" id="authProviders" class="flex justify-center space-x-2 items-center relative" v-if="selectedProviders.length != 0">
+        <UAlert v-if="Oauthprocess" class="absolute w-full z-10" color="prmry" title="oAuth" description="Waiting for login redirect ..." :ui="{ rounded: 'rounded-lg' }" />
         <UButton v-for="p in selectedProviders" :icon="p.icon" @click="onAuthProviderClick(p.provider)" variant="soft" color="drk" size="xl" :ui="{ rounded: 'rounded-full' }"/>
       </div>
     </div>
