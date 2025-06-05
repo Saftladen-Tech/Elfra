@@ -28,6 +28,9 @@
     console.log("onAuthProviderClick", prvdr)
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: prvdr,
+        options: {
+          redirectTo: 'https://localhost:3000/confirm',
+        },
       });
     if (error) {
       errorAuth.value = true
