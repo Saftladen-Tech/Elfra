@@ -14,7 +14,19 @@ export const config = {
   font: "Roboto",
   fontprovider: "google",
   auth: {
+    // supabase is used for authentication, so you need to set the environment variables SUPABASE_URL and SUPABASE_KEY in your .env file.
+    // This means you can only use Authentication, if you have set up a Supabase project.
     enabled: true,
+    oAuth: {
+      // The redirect URL is needed so Elfra can handle the OAuth flow. So dont just activate the providers without setting the redirect URL.
+      google: false,
+      facebook: false,
+      github: true,
+      twitter: false,
+      discord: false,
+      apple: false,
+      microsoft: false,
+    },
   },
   institution: {
     name: "saftladen",

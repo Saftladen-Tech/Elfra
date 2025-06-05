@@ -24,6 +24,20 @@
     return errors
   }
 
+  async function onAuthProviderClick(prvdr: any) {
+    console.log("onAuthProviderClick", prvdr)
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: prvdr,
+      });
+    if (error) {
+      errorAuth.value = true
+      errorText.value = error
+    } else {
+      navigateTo("/")
+      console.log("Login successful", data)
+    }
+  }
+
   async function onSubmit(event: FormSubmitEvent<any>) {
     // Do something with data
     authprocess.value = true
@@ -67,7 +81,7 @@
       <UDivider label="OR" v-if="selectedProviders.length != 0"/>
       <div v-else class="py-2"></div>
       <div data-testid="authProviders" id="authProviders" class="flex justify-center space-x-2 items-center" v-if="selectedProviders.length != 0">
-        <UButton v-for="p in selectedProviders" :icon="p.icon" :to="p.url" variant="soft" color="drk" size="xl" :ui="{ rounded: 'rounded-full' }"/>
+        <UButton v-for="p in selectedProviders" :icon="p.icon" @click="onAuthProviderClick(p.provider)" variant="soft" color="drk" size="xl" :ui="{ rounded: 'rounded-full' }"/>
       </div>
     </div>
   </div>
