@@ -1,4 +1,5 @@
-<script setup>
+<script setup lang="ts">
+
 import { UBadge, UTable } from '#components';
 import {config} from '@/config';
 

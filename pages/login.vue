@@ -1,6 +1,6 @@
 <script setup lang="ts">
   definePageMeta({
-    layout: 'heading-footer'
+    layout: 'heading-footer',
   })
 
   const supabase = useSupabaseClient()
