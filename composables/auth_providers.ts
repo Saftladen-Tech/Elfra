@@ -35,6 +35,11 @@ const authProviders = [
     icon: "uil:microsoft",
     provider: "microsoft",
   },
+  {
+    active: config.auth.oAuth.keycloak,
+    icon: "simple-icons:keycloak",
+    provider: "keycloak",
+  },
 ];
 
 export default authProviders;

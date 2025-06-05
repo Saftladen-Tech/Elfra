@@ -27,6 +27,7 @@ export const config = {
       discord: false,
       apple: false,
       microsoft: false,
+      keycloak: false,
     },
   },
   institution: {
