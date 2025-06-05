@@ -18,7 +18,8 @@ export const config = {
     // This means you can only use Authentication, if you have set up a Supabase project.
     enabled: true,
     oAuth: {
-      // The redirect URL is needed so Elfra can handle the OAuth flow. So don't just activate the providers without setting the redirect URL.
+      // Only set the oAuth provider to true, if you have set up the provider in your Supabase project.
+      // If you don't want to use a provider, set it to false.
       google: false,
       facebook: false,
       github: true,
