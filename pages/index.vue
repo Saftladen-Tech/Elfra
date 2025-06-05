@@ -9,7 +9,7 @@ currentcourse.value = "nothing-selected"
 
 const { data: crs } = await useAsyncData('navigation', () => {
   return queryCollection('folders')
-  .where('type', '==', "course")
+  .where('type', '=', "course")
   .all()
 })
 
