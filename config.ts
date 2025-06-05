@@ -11,17 +11,31 @@ export const config = {
     warn: "#fcc800",
     error: "#ff6467",
   },
-  font: 'Roboto',
-  fontprovider: 'google',
+  font: "Roboto",
+  fontprovider: "google",
   auth: {
-    enabled: false,
+    // supabase is used for authentication, so you need to set the environment variables SUPABASE_URL and SUPABASE_KEY in your .env file.
+    // This means you can only use Authentication, if you have set up a Supabase project.
+    enabled: true,
+    oAuth: {
+      // Only set the oAuth provider to true, if you have set up the provider in your Supabase project.
+      // If you don't want to use a provider, set it to false.
+      google: false,
+      facebook: false,
+      github: true,
+      twitter: false,
+      discord: false,
+      apple: false,
+      microsoft: false,
+      keycloak: false,
+    },
   },
   institution: {
-    name: 'saftladen',
-    web: 'saftladen.de',
+    name: "saftladen",
+    web: "saftladen.de",
   },
   topics: [
-    { name: 'IT', color: 'pink' },
-    { name: 'Security', color: 'purple' },
+    { name: "IT", color: "pink" },
+    { name: "Security", color: "purple" },
   ],
 };
