@@ -4,6 +4,9 @@
   })
 
   const supabase = useSupabaseClient()
+  let authprocess = ref(false)
+  let errorAuth = ref(false)
+  let errorText = ref()
 
   import type { FormError, FormSubmitEvent } from '#ui/types'
 
@@ -23,16 +26,20 @@
 
   async function onSubmit(event: FormSubmitEvent<any>) {
     // Do something with data
+    authprocess.value = true
     const {data, error } = await supabase.auth.signInWithPassword({
       email: event.data.email,
       password: event.data.password,
     })
     if (error) {
-      console.log(error)
+      errorAuth.value = true  
+      errorText.value = error
     } else {
       navigateTo("/")
+      console.log("Login successful", data)
     }
     console.log(event.data)
+    authprocess.value = false
   }
 </script>
 
@@ -50,8 +57,9 @@
         <UFormGroup label="Password" name="password" required>
           <UInput v-model="state.password" type="password" />
         </UFormGroup>
+        <UAlert v-if="errorAuth" color="err" class="mb-4" title="Login Error" :description="errorText?.message" />
         <Transition>
-          <UButton block type="submit" class="absolute" v-if="state.email && state.password">
+          <UButton block type="submit" class="absolute" :loading="authprocess" v-if="state.email && state.password">
           Submit
           </UButton>
         </Transition>
