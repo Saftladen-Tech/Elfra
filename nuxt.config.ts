@@ -8,7 +8,9 @@ if (config.auth?.enabled) {
 }
 
 export default defineNuxtConfig({
-  modules: ["@nuxt/content", "@nuxt/ui", "@nuxt/fonts", authprovider],
+  modules: ["@nuxt/content", "@nuxt/ui", "@nuxt/fonts", authprovider].filter(
+    Boolean
+  ),
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,
