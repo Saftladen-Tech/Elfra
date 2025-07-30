@@ -24,7 +24,7 @@ export const getProg = async (course_title: String) => {
 
   console.log("Progress for " + course_title + ": " + progress + "%");
 
-  return progress;
+  return progress.toFixed(0);
 };
 
 export const initCourse = async (course_title: String) => {
