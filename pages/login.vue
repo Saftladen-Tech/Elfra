@@ -1,7 +1,13 @@
 <script setup lang="ts">
   definePageMeta({
-    layout: 'heading-footer'
+    layout: 'heading-footer',
   })
+
+  const supabase = useSupabaseClient()
+  let authprocess = ref(false)
+  let Oauthprocess = ref(false)
+  let errorAuth = ref(false)
+  let errorText = ref()
 
   import type { FormError, FormSubmitEvent } from '#ui/types'
 
@@ -19,9 +25,40 @@
     return errors
   }
 
+  async function onAuthProviderClick(prvdr: any) {
+    Oauthprocess.value = true
+    console.log("onAuthProviderClick", prvdr)
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: prvdr,
+        options: {
+          redirectTo: 'https://localhost:3000/confirm',
+        },
+      });
+    if (error) {
+      errorAuth.value = true
+      errorText.value = error
+    } else {
+      navigateTo("/")
+      console.log("Login successful", data)
+    }
+  }
+
   async function onSubmit(event: FormSubmitEvent<any>) {
     // Do something with data
+    authprocess.value = true
+    const {data, error } = await supabase.auth.signInWithPassword({
+      email: event.data.email,
+      password: event.data.password,
+    })
+    if (error) {
+      errorAuth.value = true  
+      errorText.value = error
+    } else {
+      navigateTo("/")
+      console.log("Login successful", data)
+    }
     console.log(event.data)
+    authprocess.value = false
   }
 </script>
 
@@ -39,15 +76,18 @@
         <UFormGroup label="Password" name="password" required>
           <UInput v-model="state.password" type="password" />
         </UFormGroup>
+        <UAlert v-if="errorAuth" color="err" class="mb-4" title="Login Error" :description="errorText?.message" />
         <Transition>
-          <UButton block type="submit" class="absolute" v-if="state.email && state.password">
+          <UButton block type="submit" class="absolute" :loading="authprocess" v-if="state.email && state.password">
           Submit
           </UButton>
         </Transition>
       </UForm>
       <UDivider label="OR" v-if="selectedProviders.length != 0"/>
-      <div data-testid="authProviders" id="authProviders" class="flex justify-center space-x-2 items-center" v-if="selectedProviders.length != 0">
-        <UButton v-for="p in selectedProviders" :icon="p.icon" :to="p.url" variant="soft" color="drk" size="xl" :ui="{ rounded: 'rounded-full' }"/>
+      <div v-else class="py-2"></div>
+      <div data-testid="authProviders" id="authProviders" class="flex justify-center space-x-2 items-center relative" v-if="selectedProviders.length != 0">
+        <UAlert v-if="Oauthprocess" class="absolute w-full z-10" color="prmry" title="oAuth" description="Waiting for login redirect ..." :ui="{ rounded: 'rounded-lg' }" />
+        <UButton v-for="p in selectedProviders" :icon="p.icon" @click="onAuthProviderClick(p.provider)" variant="soft" color="drk" size="xl" :ui="{ rounded: 'rounded-full' }"/>
       </div>
     </div>
   </div>

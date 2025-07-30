@@ -1,4 +1,5 @@
-<script setup>
+<script setup lang="ts">
+
 import { UBadge, UTable } from '#components';
 import {config} from '@/config';
 
@@ -11,7 +12,7 @@ console.log("Test-course Progress: ", progress)
 
 const { data: crs } = await useAsyncData('navigation', () => {
   return queryCollection('folders')
-  .where('type', '==', "course")
+  .where('type', '=', "course")
   .all()
 })
 

@@ -1,11 +1,45 @@
+import { config } from "../config.js";
 const authProviders = [
-  { active: true, icon: "uil:google", url: "https://accounts.google.com" },
-  { active: false, icon: "uil:facebook", url: "https://www.facebook.com" },
-  { active: true, icon: "uil:github", url: "https://github.com/login" },
-  { active: false, icon: "uil:twitter", url: "https://twitter.com/login" },
-  { active: false, icon: "uil:discord", url: "https://discord.com/" },
-  { active: false, icon: "uil:apple", url: "https://apple.com/" },
-  { active: true, icon: "uil:microsoft", url: "https://microsoft.com/" },
+  {
+    active: config.auth.oAuth.google,
+    icon: "uil:google",
+    provider: "google",
+  },
+  {
+    active: config.auth.oAuth.facebook,
+    icon: "uil:facebook",
+    provider: "facebook",
+  },
+  {
+    active: config.auth.oAuth.github,
+    icon: "uil:github",
+    provider: "github",
+  },
+  {
+    active: config.auth.oAuth.twitter,
+    icon: "uil:twitter",
+    provider: "twitter",
+  },
+  {
+    active: config.auth.oAuth.discord,
+    icon: "uil:discord",
+    provider: "discord",
+  },
+  {
+    active: config.auth.oAuth.apple,
+    icon: "uil:apple",
+    provider: "apple",
+  },
+  {
+    active: config.auth.oAuth.microsoft,
+    icon: "uil:microsoft",
+    provider: "microsoft",
+  },
+  {
+    active: config.auth.oAuth.keycloak,
+    icon: "simple-icons:keycloak",
+    provider: "keycloak",
+  },
 ];
 
 export default authProviders;
