@@ -17,9 +17,14 @@ export const getProg = async (course_title: String) => {
     .from("progress_tracking")
     .select("*")
     .eq("user_id", user.value?.id)
-    .eq("course_name", currentcourse.value);
+    .eq("course_name", course_title);
 
-  return (100 / checkdata[0].course_length) * checkdata[0].current_position;
+  const progress =
+    (100 / checkdata[0].course_length) * checkdata[0].current_position;
+
+  console.log("Progress for " + course_title + ": " + progress + "%");
+
+  return progress;
 };
 
 export const initCourse = async () => {

@@ -12,15 +12,20 @@ const { data: crs } = await useAsyncData('navigation', () => {
   .where('type', '=', "course")
   .all()
 })
- 
-for (const course of crs.value) {
-  getProg(course.title)
-}
+
+const cp = await Promise.all(
+  crs.value.map(async (course) => {
+    const progress = await getProg(course.title);
+    return { title: course.title, progress };
+  }));
+
+console.log(cp)
 
 const columns = [
   { key: 'name', label: 'Name'},
   { key: 'topic', label: 'Topic'},
   { key: 'published', label: 'Published'},
+  { key: 'progress', label: 'Progress'},
   { key: "path"} // Allways use as last column! Last Column is always hidden and absolute!
 ];
 
@@ -43,6 +48,7 @@ const rows = Object.values(crs.value).map((course) => {
       label: course.topic,
       color: tp_clr
     },
+    progress: cp.find((p) => p.title === course.title)?.progress +  " %",
     name: course.title,
     path: "/courses/"+ course.title,
   }
