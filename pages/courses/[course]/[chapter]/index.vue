@@ -20,6 +20,8 @@ const { data: chapters } = await useAsyncData("chapters", () => {
     .andWhere(query => query.where('type', '=', "chapter").where("title", "=", currentchapter))
     .first()
 })
+
+initCourse()
 </script>
 
 

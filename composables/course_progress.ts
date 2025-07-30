@@ -1,44 +1,67 @@
-export const getProg = (course_title: String) => {
-    const progress = useCookie('course_progress')
-    const percent = progress.value?.currentcourse?.lastPos / progress.value?.currentcourse?.lenght * 100
-    return percent
+export const getProg = async (course_title: String) => {
+  const user = useSupabaseUser();
+  const progress = 0;
+  console.log("Getting data for");
+  console.log(user.value?.id);
+  console.log(user.value?.email);
+  console.log(course_title);
+
+  return progress;
+};
+
+export const initCourse = async () => {
+  const user = useSupabaseUser();
+  const currentcourse = useCookie("selectedcourse");
+  const completecourse = await useAsyncData("complete_course", () => {
+    return queryCollection("course_content")
+      .where("path", "LIKE", "%/" + currentcourse.value + "/%")
+      .all();
+  });
+
+  const course_length = completecourse.data.value?.length;
+
+  console.log("Init data for");
+  console.log(user.value?.id);
+  console.log(user.value?.email);
+  console.log("Course Progress - Init Values");
+  console.log(currentcourse.value);
+  console.log(course_length);
+  console.log("Values are initialized");
 };
 
 export const setProg = async (pagetitle: String) => {
-    const progress = useCookie('course_progress')
-    const currentcourse = useCookie('selectedcourse')
-    const currentPage_title = pagetitle
+  const user = useSupabaseUser();
+  const currentcourse = useCookie("selectedcourse");
+  const currentPage_title = pagetitle;
 
-    const completecourse = await useAsyncData('complete_course', () => {
-        return queryCollection('course_content')
-            .where('path', 'LIKE', "%/"+ currentcourse.value +"/%")
-    })
+  const completecourse = await useAsyncData("complete_course", () => {
+    return queryCollection("course_content")
+      .where("path", "LIKE", "%/" + currentcourse.value + "/%")
+      .all();
+  });
 
-    if (!progress.value.currentcourse){
-        progress.value = {
-            currentcourse: {
-                lenght: completecourse.value?.length,
-                lastPos: 0
-            }
-        }
-    } else {
-        if (currentPage_title === "finished") {
-            if (progress.value && progress.value.currentcourse) {
-                progress.value.currentcourse.lastPos += 1
-            }
-        } else {
-            const currentPosPage = completecourse.value?.findIndex((item: any) => {
-                return item.title === currentPage_title
-            })
+  const position = completecourse.data.value?.findIndex(
+    (item) => item.title === currentPage_title
+  );
 
-            progress.value += {currentcourse: {
-                lenght: completecourse.value?.length+1,
-                lastPos: currentPosPage,
-            }}
-        }
-    }
+  console.log("Setting data for");
+  console.log(user.value?.id);
+  console.log(user.value?.email);
+  console.log("Course Progress - Set Values");
+  console.log(currentcourse.value);
+  console.log(currentPage_title);
+  console.log(position);
+  console.log("Values are set");
+};
 
+export const finishCourse = async () => {
+  const currentcourse = useCookie("selectedcourse");
+  const completecourse = await useAsyncData("complete_course", () => {
+    return queryCollection("course_content")
+      .where("path", "LIKE", "%/" + currentcourse.value + "/%")
+      .all();
+  });
 
-    console.log("### DEBUG ###")
-    console.log(progress)
-}
+  const course_length = completecourse.data.value?.length;
+  const finishValue = course_length + 1;
+};

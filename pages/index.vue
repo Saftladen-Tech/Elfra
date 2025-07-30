@@ -7,14 +7,15 @@ const currentcourse = useCookie('selectedcourse')
 
 currentcourse.value = "nothing-selected"
 
-const progress = getProg("test-course")
-console.log("Test-course Progress: ", progress)
-
 const { data: crs } = await useAsyncData('navigation', () => {
   return queryCollection('folders')
   .where('type', '=', "course")
   .all()
 })
+ 
+for (const course of crs.value) {
+  getProg(course.title)
+}
 
 const columns = [
   { key: 'name', label: 'Name'},
