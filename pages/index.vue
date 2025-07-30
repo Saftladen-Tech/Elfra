@@ -13,6 +13,10 @@ const { data: crs } = await useAsyncData('navigation', () => {
   .all()
 })
 
+for (const course of crs.value) {
+  await initCourse(course.title);
+}
+
 const cp = await Promise.all(
   crs.value.map(async (course) => {
     const progress = await getProg(course.title);
@@ -48,7 +52,7 @@ const rows = Object.values(crs.value).map((course) => {
       label: course.topic,
       color: tp_clr
     },
-    progress: cp.find((p) => p.title === course.title)?.progress +  " %",
+    progress: cp.find((p) => p.title === course.title)?.progress,
     name: course.title,
     path: "/courses/"+ course.title,
   }
@@ -65,6 +69,12 @@ const rows = Object.values(crs.value).map((course) => {
     <UTable data-testid="courseTable" :rows="rows" :columns="columns" class="rounded-lg border border-gray-400" :ui="{tr: {base: 'group'},th: {base: 'last:w-0 last:p-0 transition-all duration-500'},td: {color:'dark:text-gray-50', base: 'group-hover:bg-black/5 dark:group-hover:bg-white/5 last:w-2/5 last:p-0 transition-all duration-500'}, divide:'dark:divide-gray-300', tbody:'dark:divide-gray-400'}">
       <template #topic-data="{ row }">
         <UBadge :label="row.topic.label" :color="row.topic.color" variant="soft" ></UBadge>
+      </template>
+      <template #progress-data="{ row }">
+        <div class="flex items-center p-2 h-full w-full transition-all duration-500">
+          <UBadge :label="row.progress + '%'" :color="row.progress === 100 ? 'green' : row.progress < 100 && row.progress > 0 ? 'yellow' : 'red'" variant="soft" class="w-full justify-center"></UBadge>
+        </div>
+       <UProgress :value="parseInt(row.progress)" :label="row.progress" class="w-full" :ui="{bar: {base: 'dark:bg-gray-500'}}"></UProgress>
       </template>
       <template #path-data="{ row }">
         <div class="flex items-center p-2 h-full w-full transition-all duration-500">

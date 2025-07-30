@@ -27,13 +27,12 @@ export const getProg = async (course_title: String) => {
   return progress;
 };
 
-export const initCourse = async () => {
+export const initCourse = async (course_title: String) => {
   const user = useSupabaseUser();
   const supabase = useSupabaseClient();
-  const currentcourse = useCookie("selectedcourse");
   const completecourse = await useAsyncData("complete_course", () => {
     return queryCollection("course_content")
-      .where("path", "LIKE", "%/" + currentcourse.value + "/%")
+      .where("path", "LIKE", "%/" + course_title + "/%")
       .all();
   });
 
@@ -43,7 +42,7 @@ export const initCourse = async () => {
   console.log(user.value?.id);
   console.log(user.value?.email);
   console.log("Course Progress - Init Values");
-  console.log(currentcourse.value);
+  console.log(course_title);
   console.log(course_length);
 
   interface Progress_tracking {
@@ -57,7 +56,7 @@ export const initCourse = async () => {
     .from("progress_tracking")
     .select("*")
     .eq("user_id", user.value?.id)
-    .eq("course_name", currentcourse.value);
+    .eq("course_name", course_title);
 
   console.log(checkdata);
 
@@ -66,11 +65,10 @@ export const initCourse = async () => {
     const { data, error } = await supabase
       .from("progress_tracking")
       .update<Progress_tracking>({
-        current_position: 0,
         course_length: course_length,
       })
       .eq("user_id", user.value?.id)
-      .eq("course_name", currentcourse.value)
+      .eq("course_name", course_title)
       .select();
 
     if (error) {
@@ -84,7 +82,7 @@ export const initCourse = async () => {
       .from("progress_tracking")
       .insert<Progress_tracking>({
         user_id: user.value?.id,
-        course_name: currentcourse.value,
+        course_name: course_title,
         current_position: 0,
         course_length: course_length,
       })
