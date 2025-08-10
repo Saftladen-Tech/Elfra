@@ -82,10 +82,14 @@ export const initCourse = async (course_title: String) => {
     }
   } else {
     // No progress exists, create it
+    if (!user.value?.id) {
+      console.error("Cannot initialize course progress: user ID is undefined.");
+      return;
+    }
     const { data, error } = await supabase
       .from("progress_tracking")
       .insert<Progress_tracking>({
-        user_id: user.value?.id,
+        user_id: user.value.id,
         course_name: course_title,
         current_position: 0,
         course_length: course_length,
