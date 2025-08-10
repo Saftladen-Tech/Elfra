@@ -34,7 +34,7 @@ export const getProg = async (course_title: String) => {
 export const initCourse = async (course_title: String) => {
   const user = useSupabaseUser();
   const supabase = useSupabaseClient();
-  const completecourse = await useAsyncData("complete_course", () => {
+  const completecourse = await useAsyncData(`complete_course_${course_title}`, () => {
     return queryCollection("course_content")
       .where("path", "LIKE", "%/" + course_title + "/%")
       .all();
