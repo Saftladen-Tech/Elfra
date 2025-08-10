@@ -22,7 +22,7 @@ export const getProg = async (course_title: String) => {
   const progress =
     (100 / checkdata[0].course_length) * checkdata[0].current_position;
 
-  console.log("Progress for " + course_title + ": " + progress + "%");
+  // console.log("Progress for " + course_title + ": " + progress + "%");
 
   return progress.toFixed(0);
 };
@@ -38,12 +38,12 @@ export const initCourse = async (course_title: String) => {
 
   const course_length = completecourse.data.value?.length;
 
-  console.log("Init data for");
-  console.log(user.value?.id);
-  console.log(user.value?.email);
-  console.log("Course Progress - Init Values");
-  console.log(course_title);
-  console.log(course_length);
+  // console.log("Init data for");
+  // console.log(user.value?.id);
+  // console.log(user.value?.email);
+  // console.log("Course Progress - Init Values");
+  // console.log(course_title);
+  // console.log(course_length);
 
   interface Progress_tracking {
     user_id: string;
@@ -58,7 +58,7 @@ export const initCourse = async (course_title: String) => {
     .eq("user_id", user.value?.id)
     .eq("course_name", course_title);
 
-  console.log(checkdata);
+  // console.log(checkdata);
 
   if (checkdata?.length) {
     // User progress exists, update it
@@ -108,13 +108,13 @@ export const setProg = async (pagetitle: String) => {
     (item) => item.title === currentPage_title
   );
 
-  console.log("Setting data for");
-  console.log(user.value?.id);
-  console.log(user.value?.email);
-  console.log("Course Progress - Set Values");
-  console.log(currentcourse.value);
-  console.log(currentPage_title);
-  console.log(position);
+  // console.log("Setting data for");
+  // console.log(user.value?.id);
+  // console.log(user.value?.email);
+  // console.log("Course Progress - Set Values");
+  // console.log(currentcourse.value);
+  // console.log(currentPage_title);
+  // console.log(position);
 
   interface Progress_tracking {
     user_id: string;
@@ -129,7 +129,7 @@ export const setProg = async (pagetitle: String) => {
     .eq("user_id", user.value?.id)
     .eq("course_name", currentcourse.value);
 
-  console.log(checkdata);
+  //console.log(checkdata);
 
   if (checkdata?.length) {
     // User progress exists, update it
@@ -167,7 +167,7 @@ export const finishCourse = async () => {
     .eq("user_id", user.value?.id)
     .eq("course_name", currentcourse.value);
 
-  console.log(checkdata);
+  // console.log(checkdata);
 
   const course_length = completecourse.data.value?.length;
   const finishValue = course_length;
