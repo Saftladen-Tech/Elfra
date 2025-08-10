@@ -23,7 +23,6 @@ const cp = await Promise.all(
     return { title: course.title, progress };
   }));
 
-console.log(cp)
 
 const columns = [
   { key: 'name', label: 'Name'},
