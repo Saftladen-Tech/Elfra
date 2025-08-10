@@ -34,11 +34,14 @@ export const getProg = async (course_title: String) => {
 export const initCourse = async (course_title: String) => {
   const user = useSupabaseUser();
   const supabase = useSupabaseClient();
-  const completecourse = await useAsyncData(`complete_course_${course_title}`, () => {
-    return queryCollection("course_content")
-      .where("path", "LIKE", "%/" + course_title + "/%")
-      .all();
-  });
+  const completecourse = await useAsyncData(
+    `complete_course_${course_title}`,
+    () => {
+      return queryCollection("course_content")
+        .where("path", "LIKE", "%/" + course_title + "/%")
+        .all();
+    }
+  );
 
   const course_length = completecourse.data.value?.length;
 
@@ -152,12 +155,14 @@ export const setProg = async (pagetitle: String) => {
         .select();
 
       if (error) {
-        console.error("Error updating progress:", error);
+        console.error("Error updating progress");
       } else {
-        console.log("Progress updated:", data);
+        console.log("Progress updated");
       }
     } else {
-      console.error("Error: currentPage_title not found in course content. Progress not updated.");
+      console.error(
+        "Error: currentPage_title not found in course content. Progress not updated."
+      );
     }
   }
   console.log("Values are set");
@@ -203,9 +208,9 @@ export const finishCourse = async () => {
       .select();
 
     if (error) {
-      console.error("Error updating progress:", error);
+      console.error("Error updating progress");
     } else {
-      console.log("Progress updated:", data);
+      console.log("Progress updated");
     }
   }
 };
