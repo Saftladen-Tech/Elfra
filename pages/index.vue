@@ -71,9 +71,9 @@ const rows = Object.values(crs.value).map((course) => {
       </template>
       <template #progress-data="{ row }">
         <div class="flex items-center p-2 h-full w-full transition-all duration-500">
-          <UBadge :label="row.progress + '%'" :color="row.progress === 100 ? 'green' : row.progress < 100 && row.progress > 0 ? 'yellow' : 'red'" variant="soft" class="w-full justify-center"></UBadge>
+          <UBadge :label="(row.progress ?? 0) + '%'" :color="(row.progress ?? 0) === 100 ? 'green' : (row.progress ?? 0) < 100 && (row.progress ?? 0) > 0 ? 'yellow' : 'red'" variant="soft" class="w-full justify-center"></UBadge>
         </div>
-       <UProgress :value="parseInt(row.progress)" :label="row.progress" class="w-full" :ui="{bar: {base: 'dark:bg-gray-500'}}"></UProgress>
+       <UProgress :value="parseInt(row.progress ?? 0)" :label="row.progress ?? 0" class="w-full" :ui="{bar: {base: 'dark:bg-gray-500'}}"></UProgress>
       </template>
       <template #path-data="{ row }">
         <div class="flex items-center p-2 h-full w-full transition-all duration-500">
