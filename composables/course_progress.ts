@@ -141,19 +141,23 @@ export const setProg = async (pagetitle: String) => {
 
   if (checkdata?.length) {
     // User progress exists, update it
-    const { data, error } = await supabase
-      .from("progress_tracking")
-      .update<Progress_tracking>({
-        current_position: position,
-      })
-      .eq("user_id", user.value?.id)
-      .eq("course_name", currentcourse.value)
-      .select();
+    if (position !== -1) {
+      const { data, error } = await supabase
+        .from("progress_tracking")
+        .update<Progress_tracking>({
+          current_position: position,
+        })
+        .eq("user_id", user.value?.id)
+        .eq("course_name", currentcourse.value)
+        .select();
 
-    if (error) {
-      console.error("Error updating progress:", error);
+      if (error) {
+        console.error("Error updating progress:", error);
+      } else {
+        console.log("Progress updated:", data);
+      }
     } else {
-      console.log("Progress updated:", data);
+      console.error("Error: currentPage_title not found in course content. Progress not updated.");
     }
   }
   console.log("Values are set");
