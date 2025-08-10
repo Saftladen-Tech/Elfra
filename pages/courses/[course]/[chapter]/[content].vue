@@ -19,6 +19,9 @@ const { data } = await useAsyncData('surround', () => {
   return queryCollectionItemSurroundings('course_content', route.path)
     .where('path', 'LIKE', "%/"+ currentcourse.value + "/" + currentchapter + "/%")
 })
+
+setProg(page.value?.title)
+
 </script>
 
 <template>
