@@ -1,10 +1,10 @@
 export const getProg = async (course_title: String) => {
   const user = useSupabaseUser();
   const supabase = useSupabaseClient();
-  console.log("Getting data for");
-  console.log(user.value?.id);
-  console.log(user.value?.email);
-  console.log(course_title);
+  // console.log("Getting data for");
+  // console.log(user.value?.id);
+  // console.log(user.value?.email);
+  // console.log(course_title);
 
   interface Progress_tracking {
     user_id: string;
