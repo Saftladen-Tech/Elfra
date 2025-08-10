@@ -19,6 +19,10 @@ export const getProg = async (course_title: String) => {
     .eq("user_id", user.value?.id)
     .eq("course_name", course_title);
 
+  if (!checkdata || !Array.isArray(checkdata) || checkdata.length === 0) {
+    // No progress record found, return 0 progress
+    return "0";
+  }
   const progress =
     (100 / checkdata[0].course_length) * checkdata[0].current_position;
 
