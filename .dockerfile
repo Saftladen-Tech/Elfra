@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Mount external
-VOLUME courses:/app/content/courses
+VOLUME /app/content/courses
 
 # Nuxt im Produktionsmodus bauen
 RUN npm run build
@@ -22,4 +22,5 @@ RUN npm run build
 # Port freigeben (Standard für Nuxt)
 EXPOSE 3000
 # Startbefehl
-CMD ["npm", "preview"]
+CMD ["npm", "run, "preview"]
+
