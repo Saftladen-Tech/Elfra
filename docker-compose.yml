@@ -7,9 +7,10 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./content/courses:/app/content/courses
+      - ./courses:/app/content/courses
       - ./customconfig:/app/customconfig
     environment:
       NODE_ENV: production
     restart: unless-stopped
+
 
