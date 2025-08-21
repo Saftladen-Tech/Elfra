@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.version
+
+# Docker
+elfra-container
