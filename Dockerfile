@@ -9,7 +9,6 @@ COPY package*.json ./
 
 # Abhängigkeiten installieren
 RUN npm install
-RUN npm install better-sqlite3
 
 # Quellcode kopieren
 COPY . .
