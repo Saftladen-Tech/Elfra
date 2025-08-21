@@ -5,12 +5,12 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - elfra-courses:/app/content/courses
-      - elfra-config:/app/customconfig
+      - courses:/app/content/courses
+      - config:/app/customconfig
     environment:
       NODE_ENV: production
     restart: unless-stopped
 
 volumes:
-  elfra-courses:
-  elfra-config:
+  courses:
+  config:
