@@ -1,5 +1,5 @@
 services:
-  nuxt-app:
+  elfra:
     build: .
     image: elfra:0.0.1-alpha
     ports:
