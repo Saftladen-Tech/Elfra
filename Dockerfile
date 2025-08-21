@@ -21,7 +21,7 @@ RUN npm run build
 EXPOSE 3000
 
 # Startbefehl
-# Production - Only deploy on HTTPs Hosted Pages!
+# Production - Only deploy on HTTPs Hosted Servers!
 # CMD ["npm", "run", "preview"]
 # Demo / Dev
 CMD ["npm", "run", "dev"]
