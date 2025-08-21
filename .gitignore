@@ -21,7 +21,7 @@ logs
 # Local env files
 .env
 .env.*
-!.env.version
+!.env.example
 
 # Docker
 elfra-container
