@@ -9,6 +9,6 @@ import {config} from '@/customconfig/config';
       <h1 class="text-6xl font-bold">{{config.institution.name}}</h1>
     </div>
     <slot />
-    <footer-costum />
+    <footer-custom />
   </div>
 </template>

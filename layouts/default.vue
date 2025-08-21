@@ -67,6 +67,6 @@ const links = ref([
       </UDropdown>
     </header>
     <slot />
-    <footer-costum />
+    <footer-custom />
   </div>
 </template>
