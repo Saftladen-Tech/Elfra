@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { config } from "../config.js";
+import { config } from "../customconfig/config.js";
 import ChangeColorBtn from '~/components/ChangeColorBtn.vue';
 
 const liveuser = ref()

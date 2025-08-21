@@ -1,4 +1,4 @@
-import { config } from "../config.js";
+import { config } from "../customconfig/config.js";
 const authProviders = [
   {
     active: config.auth.oAuth.google,
