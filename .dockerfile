@@ -13,10 +13,6 @@ RUN npm install
 # Quellcode kopieren
 COPY . .
 
-# Mount external
-VOLUME /app/content/courses
-VOLUME /app/customconfig/
-
 # Nuxt im Produktionsmodus bauen
 RUN npm run build
 
