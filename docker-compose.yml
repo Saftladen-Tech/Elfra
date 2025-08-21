@@ -1,5 +1,5 @@
 services:
-  elfra:
+  elfra-application:
     build: .
     image: elfra:1.0.0
     ports:
