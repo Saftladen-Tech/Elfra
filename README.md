@@ -6,10 +6,10 @@ E-Learning Framework
 
 To install and use our service, we use docker to containerize it.
 
-> ### IMPORTANT
+> ### ⚠️ IMPORTANT ⚠️
 >
 > Make sure you have setup supabase and created a ".env" file with the necessary environment variables.
-> You can use the ".env.example" file as a reference.
+> _You can use the ".env.example" file as a reference._
 
 ---
 
