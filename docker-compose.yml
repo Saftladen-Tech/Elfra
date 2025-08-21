@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   nuxt-app:
     build: .
-    image: Elfra:${IMAGE_VERSION}
+    image: elfra:0.0.1-alpha
     ports:
       - "3000:3000"
     volumes:
@@ -12,5 +10,3 @@ services:
     environment:
       NODE_ENV: production
     restart: unless-stopped
-
-

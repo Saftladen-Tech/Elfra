@@ -1,5 +1,5 @@
 # Basis-Image mit Node.js
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Arbeitsverzeichnis erstellen
 WORKDIR /app
@@ -19,5 +19,5 @@ RUN npm run build
 # Port freigeben (Standard für Nuxt)
 EXPOSE 3000
 # Startbefehl
-CMD ["npm", "run, "preview"]
+CMD ["npm", "run", "preview"]
 
