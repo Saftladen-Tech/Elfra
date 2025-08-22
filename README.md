@@ -28,9 +28,17 @@ To run the container now use this command:
 
 #### OR THIS
 
-> `docker run Elfra:x.x.x`  
+> <pre> docker run -d \
+> &emsp; --name elfra-app \
+> &emsp; -p 3000:3000 \
+> &emsp; -v courses:/app/content/courses \
+> &emsp; -v config:/app/customconfig \
+> &emsp; -e NODE_ENV=production \
+> &emsp; --restart unless-stopped \
+> &emsp; elfra:1.0.0
+> </pre>
 > _Replace "x.x.x" with the version number of the tag you are installing._ E.g.: 1.0.0  
-> 🚩 If you use this command, you have to mount all folders yourself and use `docker stop <container_id_or_name>`
+> 🚩 If you use this command you have to use `docker stop <container_id_or_name>` to stop it
 
 Now you can stop/end the container by using
 
