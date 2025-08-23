@@ -16,6 +16,6 @@ const props = defineProps({
         <UButton color="primary" variant="outline" class="mt-10 px-14 py-4 justify-center" to="/">Home</UButton>
       </div>
     </div>
-    <footer-costum />
+    <footer-custom />
   </div>
 </template>
