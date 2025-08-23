@@ -81,7 +81,7 @@ export const initCourse = async (course_title: String) => {
     if (error) {
       console.error("Error updating progress:", error);
     } else {
-      console.log("Progress updated:", data);
+      console.log("Progress updated");
     }
   } else {
     // No progress exists, create it
