@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { config } from "./config.js";
+import { config } from "./customconfig/config.js";
 
 let authprovider = "";
 

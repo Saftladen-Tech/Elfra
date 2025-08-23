@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { UBadge, UTable } from '#components';
-import {config} from '@/config';
+import {config} from '@/customconfig/config';
 
 const currentcourse = useCookie('selectedcourse')
 

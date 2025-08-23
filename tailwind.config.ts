@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 import generateTailwindShades from "./utils/js/colorGen.js";
-import { config } from "./config.js";
+import { config } from "./customconfig/config.js";
 
 export default <Partial<Config>>{
   theme: {

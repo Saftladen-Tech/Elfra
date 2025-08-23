@@ -1,0 +1,16 @@
+services:
+  elfra-app:
+    build: .
+    image: elfra:1.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - courses:/app/content/courses
+      - config:/app/customconfig
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+
+volumes:
+  courses:
+  config:

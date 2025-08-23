@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen flex flex-col">
     <slot />
-    <footer-costum />
+    <footer-custom />
   </div>
 </template>

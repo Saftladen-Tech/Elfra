@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {config} from '@/config';
+import {config} from '@/customconfig/config';
 </script>
 
 <template>
@@ -9,6 +9,6 @@ import {config} from '@/config';
       <h1 class="text-6xl font-bold">{{config.institution.name}}</h1>
     </div>
     <slot />
-    <footer-costum />
+    <footer-custom />
   </div>
 </template>
