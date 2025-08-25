@@ -8,7 +8,7 @@ To install and use our service, we use docker to containerize it.
 
 > ### ⚠️ IMPORTANT ⚠️
 >
-> Make sure you have [supabase setup](www.supabase.com) and created a ".env" file with the necessary environment variables.
+> Make sure you have [supabase setup]([www.supabase.com](https://github.com/Saftladen-Tech/Elfra/wiki/Supabase-Setup)) and created a ".env" file with the necessary environment variables.
 > _You can use the ".env.example" file as a reference._
 
 ---
