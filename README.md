@@ -12,7 +12,9 @@ To install and use our service, we use docker to containerize it.
 > _You can use the ".env.example" file as a reference._
 
 ---
+
 We recommed to download the latest stable release and not use the mainbranch for your install!
+
 ---
 
 ### Method 1: Build it for later re-use of the Image
