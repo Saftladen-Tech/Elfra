@@ -13,7 +13,7 @@ To install and use our service, we use docker to containerize it.
 
 ---
 
-We recommed to download the latest stable release and not use the mainbranch for your install!
+We recommed to download the latest stable release and not use the main branch for your install!
 
 ---
 
