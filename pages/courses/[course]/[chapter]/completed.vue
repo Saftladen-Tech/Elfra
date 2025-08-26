@@ -35,9 +35,9 @@ const nextroute = "/courses/" + route.params.course + "/" + nextchapter
         </svg>
       </div>
       <div data-testid="navigation" class="flex sm:space-x-24 space-x-4">
-        <UButton variant="soft" icon="i-heroicons-arrow-left" class="flex justify-center items-center  p-4 sm:w-56 w-42 text-center sm:text-2xl text-lg" :to="restart_route">Wiederholen</UButton>
-        <UButton variant="soft" trailing-icon="i-heroicons-arrow-right" class="flex justify-center items-center p-4 sm:w-56 w-42 text-center sm:text-2xl text-lg" v-if="nextchapter" :to="nextroute">Weiter</UButton>
-        <UButton variant="soft" trailing-icon="i-heroicons-arrow-right" class="flex justify-center items-center p-4 sm:w-56 w-42 text-center sm:text-2xl text-lg" v-else :to="'/courses/'+route.params.course+'/finished'">Weiter</UButton>
+        <UButton variant="soft" icon="i-heroicons-arrow-left" class="flex justify-center items-center  p-4 sm:w-56 w-44 text-center sm:text-2xl text-lg" :to="restart_route">Wiederholen</UButton>
+        <UButton variant="soft" trailing-icon="i-heroicons-arrow-right" class="flex justify-center items-center p-4 sm:w-56 w-44 text-center sm:text-2xl text-lg" v-if="nextchapter" :to="nextroute">Weiter</UButton>
+        <UButton variant="soft" trailing-icon="i-heroicons-arrow-right" class="flex justify-center items-center p-4 sm:w-56 w-44 text-center sm:text-2xl text-lg" v-else :to="'/courses/'+route.params.course+'/finished'">Weiter</UButton>
       </div>
     </div>
   </div>
