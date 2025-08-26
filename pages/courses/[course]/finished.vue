@@ -22,8 +22,8 @@ definePageMeta({
         </svg>
       </div>  
       <div data-testid="navigation" class="flex sm:space-x-24 space-x-4">
-        <UButton variant="soft" icon="i-heroicons-arrow-path" class="flex justify-center items-center  p-4 sm:w-56 w-42 text-center text-2xl" :to="restart_route">Neustarten</UButton>
-        <UButton variant="soft" trailing-icon="i-heroicons-check" class="flex justify-center items-center p-4 sm:w-56 w-42 text-center text-2xl" to="/">Beenden</UButton>
+        <UButton variant="soft" icon="i-heroicons-arrow-path" class="flex justify-center items-center  p-4 sm:w-56 w-44 text-center text-2xl" :to="restart_route">Neustarten</UButton>
+        <UButton variant="soft" trailing-icon="i-heroicons-check" class="flex justify-center items-center p-4 sm:w-56 w-44 text-center text-2xl" to="/">Beenden</UButton>
       </div>
     </div>
   </div>
