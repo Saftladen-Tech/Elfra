@@ -1,7 +1,7 @@
 services:
   elfra-app:
     build: .
-    image: elfra:1.0.0
+    image: elfra:1.0.1
     ports:
       - "3000:3000"
     volumes:
