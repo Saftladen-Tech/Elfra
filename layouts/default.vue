@@ -52,7 +52,7 @@ const links = ref([
 
 <template>
   <div class="min-h-screen flex flex-col">
-    <header data-testid="header" class="flex px-20 h-32 items-center justify-center">
+    <header data-testid="header" class="hidden sm:flex px-20 h-32 items-center justify-center">
       <img src="public/images/logo.jpg" alt="Company Logo" class="w-24 h-24 rounded-full" />
       <UHorizontalNavigation :links="links" :ui="{icon: {base:'bg-gray-200 group-hover:dark:bg-prmry-500'}, before:'hover:before:bg-prmry-300/30'}" class="border-b border-gray-200 dark:border-gray-400 ml-24" />
       <div class="flex justify-center item-center mx-10">
@@ -65,6 +65,30 @@ const links = ref([
           </template>
         </UButton>
       </UDropdown>
+    </header>
+    <header data-testid="header" class="sm:hidden flex px-0 w-full h-32 items-center justify-between">
+      <img src="public/images/logo.jpg" alt="Company Logo" class="w-16 h-16 rounded-full" />
+      <div class="flex space-x-2">
+        <div class="flex justify-center item-center">
+          <ChangeColorBtn />
+        </div>
+        <UPopover>
+          <UButton color="white" trailing-icon="i-heroicons-bars-3" size="xl" class="p-4" />
+
+          <template #panel>
+            <div class="flex flex-col justify-center items-center space-y-2 p-4">
+              <UVerticalNavigation :links="links" :ui="{icon: {base:'bg-gray-200 group-hover:dark:bg-prmry-500'}, before:'hover:before:bg-prmry-300/30'}" class="border-b border-gray-200 dark:border-gray-400" />
+              <UDropdown v-if="authenticationEnabled" :items="useritems" :ui="{background: 'bg-white dark:bg-drk-500', item: {icon: {active: 'text-err-500 dark:text-err-400',inactive: 'text-gray-700 dark:text-gray-200'},}}" :popper="{ placement: 'bottom-start' }">
+                <UButton color="scndry" label="Profile" variant="ghost">
+                  <template #leading>
+                    <UAvatar data-testid="avatar" :src="liveuser?.user_metadata.avatar_url" :alt="liveuser?.email" size="sm" />
+                  </template>
+                </UButton>
+              </UDropdown>
+            </div>
+          </template>
+        </UPopover>
+      </div>
     </header>
     <slot />
     <footer-custom />

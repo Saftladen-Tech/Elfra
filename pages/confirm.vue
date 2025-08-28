@@ -11,7 +11,7 @@ watch(user, () => {
 
 <template>
   <div data-testid="contentwrapper" class="flex grow flex-col justify-center items-center text-center pb-28">
-    <p class="text-7xl text-warn-500">Waiting for Login ...</p>
+    <p class="sm:text-7xl text-5xl text-warn-500">Waiting for Login ...</p>
   </div>
 </template>
 

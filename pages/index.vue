@@ -59,9 +59,9 @@ const rows = Object.values(crs.value).map((course) => {
 </script> 
 
 <template>
-  <div data-testid="contentwrapper" class="flex flex-col w-full max-w-5xl mx-auto mt-8 grow">
-    <h1 class="text-7xl mb-4 text-prmry-500">Welcome to Elfra</h1>
-    <p class="text-5xl mb-12">the Framework for e-learning and WBTs</p>
+  <div data-testid="contentwrapper" class="flex flex-col w-full max-w-5xl mx-auto sm:mt-8 mt-0 grow">
+    <h1 class="sm:text-7xl text-4xl mb-4 text-prmry-500">Welcome to Elfra</h1>
+    <p class="sm:text-5xl text-2xl sm:mb-12 mb-6">the Framework for e-learning and WBTs</p>
     <UDivider icon="i-heroicons-book-open" size="sm" :ui="{border:{base:'dark:border-gray-400'}, container:{base:'dark:text-white'}}"></UDivider>
     <h2 class="text-3xl mt-6 mb-4">Webbasedtrainings and Content</h2>
 

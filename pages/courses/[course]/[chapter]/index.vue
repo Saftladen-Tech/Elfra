@@ -26,8 +26,8 @@ const { data: chapters } = await useAsyncData("chapters", () => {
 <template>
   <div class="flex justify-center items-center grow">
       <div data-testid="contentwrapper" class="flex flex-col justify-center items-center max-w-[800px] space-y-8">
-        <h1 class="text-8xl font-semibold dark:drop-shadow-glow-lg drop-shadow-glow-dark-lg">{{ route.params.chapter }}</h1>
-        <p class="text-4xl text-center bg-transparent">{{ chapters?.description }}</p>
+        <h1 class="sm:text-8xl text-6xl font-semibold dark:drop-shadow-glow-lg drop-shadow-glow-dark-lg">{{ route.params.chapter }}</h1>
+        <p class="sm:text-4xl text-xl text-center bg-transparent">{{ chapters?.description }}</p>
         <UButton data-testid="startbtn" variant="ghost" size="xl" icon="i-heroicons-arrow-down" :to="start_page?.path"></UButton>
       </div>
   </div>
