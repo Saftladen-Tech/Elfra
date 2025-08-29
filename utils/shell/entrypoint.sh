@@ -11,7 +11,7 @@ copy_if_empty() {
     SRC="$1"
     DEST="$2"
     if [ -d "$DEST" ] && [ -z "$(ls -A "$DEST")" ]; then
-        cp -a "$SRC/" "$DEST/"
+        cp -r "$SRC/"* "$DEST/"
         echo "Daten von $SRC nach $DEST kopiert."
     else
         echo "$DEST ist nicht leer, keine Daten kopiert."
@@ -20,3 +20,5 @@ copy_if_empty() {
 
 copy_if_empty "$configs" "$config_mount"
 copy_if_empty "$courses" "$courses_mount"
+
+exec /app "$@"
