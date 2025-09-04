@@ -16,7 +16,7 @@ RUN npm run build
 
 EXPOSE 3000
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT ["./entrypoint.sh"]
 
 # Startbefehl
 # Production - Only deploy on HTTPs Hosted Servers!

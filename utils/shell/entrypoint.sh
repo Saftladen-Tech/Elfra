@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Verzeichnisse definieren
 configs="./.default/config"
