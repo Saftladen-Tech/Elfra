@@ -21,4 +21,4 @@ copy_if_empty() {
 copy_if_empty "$configs" "$config_mount"
 copy_if_empty "$courses" "$courses_mount"
 
-exec /app "$@"
+exec "$@"
