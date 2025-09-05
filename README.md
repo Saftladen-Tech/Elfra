@@ -81,7 +81,7 @@ Now you can stop/end the container by using
 
 ---
 
-Its importand to know that you will get 2 Volumes in docker:
+Its importand to know that you will get 2 folder bind into the docker container:
 
 📂: elfra_courses  
 📂: elfra_config
