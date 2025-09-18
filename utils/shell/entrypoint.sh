@@ -2,8 +2,10 @@
 
 configs="./.default/config"
 courses="./.default/courses"
+public="./.default/public"
 config_mount="./customconfig"
 courses_mount="./content/courses"
+data_mount="./public"
 
 copy_if_empty() {
     SRC="$1"
@@ -18,5 +20,6 @@ copy_if_empty() {
 
 copy_if_empty "$configs" "$config_mount"
 copy_if_empty "$courses" "$courses_mount"
+copy_if_empty "$public" "$data_mount"
 
 exec "$@"

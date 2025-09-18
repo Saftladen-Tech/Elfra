@@ -7,6 +7,7 @@ services:
     volumes:
       - ~/elfra/courses:/app/content/courses
       - ~/elfra/config:/app/customconfig
+      - ~/elfra/data:/app/public
     environment:
       NODE_ENV: production
     restart: unless-stopped
