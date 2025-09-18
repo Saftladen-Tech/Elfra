@@ -30,7 +30,7 @@ setProg(page.value?.title)
     <div data-testid="content" class="bg-white p-5 rounded-lg min-h-full my-4 text-black border light:border-black dark:border-prmry-500/50">
       <h2 id="md-topic" class="sm:text-4xl text-2xl font-semibold sm:mb-5 mb-2">{{ page?.title }}</h2>
       <div class="flex justify-center items-center flex-col">
-        <ContentRenderer class="sm:text-xl text-sm font-regular prose prose-lg" :value="page?.body" />
+        <ContentRenderer class="sm:text-xl text-sm font-regular prose prose-lg dark:prose-pre:bg-slate-800 dark:prose-pre:text-white prose-pre:bg-slate-200 prose-pre:text-black" :value="page?.body" />
       </div>
     </div>
     <div id="buttons" class="flex justify-between my-3">
