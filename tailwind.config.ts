@@ -4,6 +4,7 @@ import generateTailwindShades from "./utils/js/colorGen.js";
 import { config } from "./customconfig/config.js";
 
 export default <Partial<Config>>{
+  plugins: [require("@tailwindcss/typography")],
   theme: {
     fontFamily: {
       sans: [config.font, ...defaultTheme.fontFamily.sans],

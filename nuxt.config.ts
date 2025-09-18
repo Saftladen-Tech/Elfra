@@ -31,4 +31,11 @@ export default defineNuxtConfig({
   fonts: {
     families: [{ name: config.font, provider: config.fontprovider }],
   },
+  content: {
+    renderer: {
+      alias: {
+        p: "CParagraph",
+      },
+    },
+  },
 });
