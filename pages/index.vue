@@ -26,7 +26,7 @@ let columns = [
     { key: 'name', label: 'Name'},
     { key: 'topic', label: 'Topic'},
     { key: 'published', label: 'Published'},
-    { key: "path"} // Allways use as last column! Last Column is always hidden and absolute!
+    { key: "path"} // Always use as last column! Last Column is always hidden and absolute!
   ];
 
 if (config.auth.enabled) {
@@ -35,7 +35,7 @@ if (config.auth.enabled) {
     { key: 'topic', label: 'Topic'},
     { key: 'published', label: 'Published'},
     { key: 'progress', label: 'Progress'},
-    { key: "path"} // Allways use as last column! Last Column is always hidden and absolute!
+    { key: "path"} // Always use as last column! Last Column is always hidden and absolute!
   ];
 }
 
