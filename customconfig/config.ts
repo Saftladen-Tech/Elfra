@@ -16,7 +16,7 @@ export const config = {
   auth: {
     // supabase is used for authentication, so you need to set the environment variables SUPABASE_URL and SUPABASE_KEY in your .env file.
     // This means you can only use Authentication, if you have set up a Supabase project.
-    enabled: true,
+    enabled: false,
     oAuth: {
       // Only set the oAuth provider to true, if you have set up the provider in your Supabase project.
       // If you don't want to use a provider, set it to false.
