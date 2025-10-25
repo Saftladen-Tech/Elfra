@@ -1,4 +1,10 @@
+import { config } from "../customconfig/config.js";
+
 export const getProg = async (course_title: String) => {
+  if (!config.auth.enabled) {
+    console.warn("Authentication is disabled.");
+    return;
+  }
   const user = useSupabaseUser();
   const supabase = useSupabaseClient();
   // console.log("Getting data for");
@@ -32,6 +38,10 @@ export const getProg = async (course_title: String) => {
 };
 
 export const initCourse = async (course_title: String) => {
+  if (!config.auth.enabled) {
+    console.warn("Authentication is disabled.");
+    return;
+  }
   const user = useSupabaseUser();
   const supabase = useSupabaseClient();
   const completecourse = await useAsyncData(
@@ -104,6 +114,10 @@ export const initCourse = async (course_title: String) => {
 };
 
 export const setProg = async (pagetitle: String) => {
+  if (!config.auth.enabled) {
+    console.warn("Authentication is disabled.");
+    return;
+  }
   const user = useSupabaseUser();
   const supabase = useSupabaseClient();
   const currentcourse = useCookie("selectedcourse");
@@ -169,6 +183,10 @@ export const setProg = async (pagetitle: String) => {
 };
 
 export const finishCourse = async () => {
+  if (!config.auth.enabled) {
+    console.warn("Authentication is disabled.");
+    return;
+  }
   const user = useSupabaseUser();
   const supabase = useSupabaseClient();
   const currentcourse = useCookie("selectedcourse");
