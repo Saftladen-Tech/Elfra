@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { UBadge, UTable } from '#components';
 import {config} from '@/customconfig/config';
 
@@ -23,14 +22,22 @@ const cp = await Promise.all(
     return { title: course.title, progress };
   }));
 
+let columns = [
+    { key: 'name', label: 'Name'},
+    { key: 'topic', label: 'Topic'},
+    { key: 'published', label: 'Published'},
+    { key: "path"} // Always use as last column! Last Column is always hidden and absolute!
+  ];
 
-const columns = [
-  { key: 'name', label: 'Name'},
-  { key: 'topic', label: 'Topic'},
-  { key: 'published', label: 'Published'},
-  { key: 'progress', label: 'Progress'},
-  { key: "path"} // Allways use as last column! Last Column is always hidden and absolute!
-];
+if (config.auth.enabled) {
+  columns = [
+    { key: 'name', label: 'Name'},
+    { key: 'topic', label: 'Topic'},
+    { key: 'published', label: 'Published'},
+    { key: 'progress', label: 'Progress'},
+    { key: "path"} // Always use as last column! Last Column is always hidden and absolute!
+  ];
+}
 
 const topics = config.topics.reduce((acc, topic) => {
   acc[topic.name.toLowerCase()] = topic.color;
@@ -45,18 +52,30 @@ const rows = Object.values(crs.value).map((course) => {
     tp_clr = topics[tp];
   }
 
-  return {
-    published: course.published,
-    topic: {
-      label: course.topic,
-      color: tp_clr
-    },
-    progress: cp.find((p) => p.title === course.title)?.progress,
-    name: course.title,
-    path: "/courses/"+ course.title,
+  if (config.auth.enabled) {
+    return {
+      published: course.published,
+      topic: {
+        label: course.topic,
+        color: tp_clr
+      },
+      progress: cp.find((p) => p.title === course.title)?.progress,
+      name: course.title,
+      path: "/courses/"+ course.title,
+    }
+  } else {
+    return {
+      published: course.published,
+      topic: {
+        label: course.topic,
+        color: tp_clr
+      },
+      name: course.title,
+      path: "/courses/"+ course.title,
+    }
   }
-})
-</script> 
+});
+</script>
 
 <template>
   <div data-testid="contentwrapper" class="flex flex-col w-full max-w-5xl mx-auto sm:mt-8 mt-0 grow">
