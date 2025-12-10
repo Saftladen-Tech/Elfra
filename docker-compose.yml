@@ -1,14 +1,49 @@
 services:
-  elfra-app:
+  elfra-app0:
     build: .
     image: elfra:1.0.3
     ports:
       - "3000:3000"
     volumes:
-      - ~/elfra/courses:/app/content/courses
-      - ~/elfra/config:/app/customconfig
-      - ~/elfra/data:/app/public
+      - ${HOME}/demo_elfra0/courses:/app/content/courses
+      - ${HOME}/demo_elfra0/config:/app/customconfig
+      - ${HOME}/demo_elfra0/data:/app/public
     environment:
       NODE_ENV: production
     restart: unless-stopped
 
+  elfra-app1:
+    image: elfra:1.0.3
+    ports:
+      - "3100:3000"
+    volumes:
+      - ${HOME}/demo_elfra1/courses:/app/content/courses
+      - ${HOME}/demo_elfra1/config:/app/customconfig
+      - ${HOME}/demo_elfra1/data:/app/public
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+  
+  elfra-app2:
+    image: elfra:1.0.3
+    ports:
+      - "3200:3000"
+    volumes:
+      - ${HOME}/demo_elfra2/courses:/app/content/courses
+      - ${HOME}/demo_elfra2/config:/app/customconfig
+      - ${HOME}/demo_elfra2/data:/app/public
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+
+  elfra-app3:
+    image: elfra:1.0.3
+    ports:
+      - "3300:3000"
+    volumes:
+      - ${HOME}/demo_elfra3/courses:/app/content/courses
+      - ${HOME}/demo_elfra3/config:/app/customconfig
+      - ${HOME}/demo_elfra3/data:/app/public
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
