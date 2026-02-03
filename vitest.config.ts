@@ -4,6 +4,7 @@ import vue from "@vitejs/plugin-vue";
 export default defineVitestConfig({
   plugins: [vue()],
   test: {
+    globalSetup: ['./test/setup/globalSetup.ts'],
     environment: "happy-dom",
     provide: {
       testURL: 'http://localhost:3000',
