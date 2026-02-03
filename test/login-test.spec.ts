@@ -1,12 +1,19 @@
 import { describe, it, expect, test, inject } from "vitest";
 import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
+import { config } from "../customconfig/config.js";
 
-describe.todo("login test", async () => {
+let cDescribe = describe
+
+if(!config.auth.enabled){
+  cDescribe = describe.skip
+}
+
+cDescribe("login test", async () => {
   await setup({
     host: inject('testURL'),
   });
 
-  it.skip("static content", async () => {
+  it("static content", async () => {
     const page = await createPage("/login");
     const content = await page.getByTestId("contentwrapper");
 
@@ -17,7 +24,7 @@ describe.todo("login test", async () => {
     expect(await content.getByTestId("authProviders").count()).toBe(1);
   });
 
-  it.skip("dynamic content", async () => {
+  it("dynamic content", async () => {
     const page = await createPage("/login");
     const content = await page.getByTestId("contentwrapper");
     const mail = await content.getByRole("textbox", {name:"Email"});
@@ -29,7 +36,7 @@ describe.todo("login test", async () => {
     expect(await content.getByRole("button", {name:"submit"}).count()).toBe(1);
   });
 
-  it.skip("content position", async () => {
+  it("content position", async () => {
     const page = await createPage("/login");
     const content = await page.getByTestId("contentwrapper");
     const contentbox = await content.boundingBox();
