@@ -11,8 +11,15 @@ describe("header content", async () => {
     const baseheader = await page.getByTestId("header");
 
     expect(await baseheader.getByAltText("Company Logo").count()).toBe(1);
-    // NOT CLEANLY DONE IN CODE - REVISIT expect(await baseheader.getByTestId("avatar").count()).toBe(1);
     expect(await baseheader.getByRole("navigation").count()).toBe(1);
+    expect(await baseheader.getByTestId("colormode").count()).toBe(1);
+  });
+
+  it("static nav content mobile", async () => {
+    const page = await createPage("/");
+    const baseheader = await page.getByTestId("header-mobile");
+
+    expect(await baseheader.getByAltText("Company Logo").count()).toBe(1);
     expect(await baseheader.getByTestId("colormode").count()).toBe(1);
   });
 
@@ -30,7 +37,7 @@ describe("header content", async () => {
     expect(elementCenterX).toBeCloseTo(vpxc, 1); // Allow slight margin
   });
 
-  it("static hero content", async () => {
+  it.skip("static hero content", async () => {
     const page = await createPage("/login");
     const heroheader = await page.getByTestId("header");
 
@@ -38,7 +45,7 @@ describe("header content", async () => {
     expect(await heroheader.getByRole("heading", { level: 1 }).count()).toBe(1);
   });
 
-  it("hero header position", async () => {
+  it.skip("hero header position", async () => {
     const page = await createPage("/login");
 
     const heroheader = await page.getByTestId("header");

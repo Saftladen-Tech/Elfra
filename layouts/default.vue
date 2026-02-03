@@ -66,7 +66,7 @@ const links = ref([
         </UButton>
       </UDropdown>
     </header>
-    <header data-testid="header" class="sm:hidden flex px-0 w-full h-32 items-center justify-between">
+    <header data-testid="header-mobile" class="sm:hidden flex px-0 w-full h-32 items-center justify-between">
       <img src="public/images/logo.jpg" alt="Company Logo" class="w-16 h-16 rounded-full" />
       <div class="flex space-x-2">
         <div class="flex justify-center item-center">
