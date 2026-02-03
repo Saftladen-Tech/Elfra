@@ -9,7 +9,7 @@ describe("footer content", async () => {
   it("footer name", async () => {
     const page = await createPage("/");
     expect(await page.getByTestId("footer").innerHTML()).toContain(
-      "ELFRA Framework – "
+      "ELFRA Framework"
     );
   });
 
@@ -18,7 +18,7 @@ describe("footer content", async () => {
     expect(
       await page
         .getByTestId("footer")
-        .getByRole("link", { name: "Github", exact: true })
+        .getByRole("link", { name: "ELFRA Framework", exact: true })
         .count()
     ).toBe(1);
   });
@@ -27,6 +27,13 @@ describe("footer content", async () => {
     const page = await createPage("/");
     expect(await page.getByTestId("footer").innerHTML()).toContain(
       " – MIT Licensed"
+    );
+  });
+
+  it("footer enterprise", async () => {
+    const page = await createPage("/");
+    expect(await page.getByTestId("footer").innerHTML()).toContain(
+      "using"
     );
   });
 
