@@ -7,12 +7,12 @@ describe("chapter end test", async () => {
   });
 
   it("Static Content", async () => {
-    const page = await createPage("/chapter_end");
+    const page = await createPage("/courses/elfra-getting-started/introduction/completed");
     expect(await page.content()).toContain("Kapitel abgeschlossen!");
   });
 
   it("Content position", async () => {
-    const page = await createPage("/chapter_end");
+    const page = await createPage("/courses/elfra-getting-started/introduction/completed");
 
     const content = await page.getByTestId("contentwrapper");
     const contentbox = await content.boundingBox();
@@ -27,27 +27,27 @@ describe("chapter end test", async () => {
   });
 
   it("Has ICON", async () => {
-    const page = await createPage("/chapter_end");
+    const page = await createPage("/courses/elfra-getting-started/introduction/completed");
     const content = page.getByTestId("icon");
     expect(await content.count()).toBe(1);
   });
 
   it("Has Nav Buttons next", async () => {
-    const page = await createPage("/chapter_end");
+    const page = await createPage("/courses/elfra-getting-started/introduction/completed");
     const navigation = page.getByTestId("navigation");
     expect(
       await navigation
-        .getByRole("button", { name: "Weiter", exact: true })
+        .getByRole("link", { name: "Weiter", exact: true })
         .count()
     ).toBe(1);
   });
 
   it("Has Nav Buttons repeat", async () => {
-    const page = await createPage("/chapter_end");
+    const page = await createPage("/courses/elfra-getting-started/introduction/completed");
     const navigation = page.getByTestId("navigation");
     expect(
       await navigation
-        .getByRole("button", { name: "Wiederholen", exact: true })
+        .getByRole("link", { name: "Wiederholen", exact: true })
         .count()
     ).toBe(1);
   });
