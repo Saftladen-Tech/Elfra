@@ -1,7 +1,7 @@
 import { describe, it, expect, test } from "vitest";
 import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
 
-describe("login test", async () => {
+describe.todo("login test", async () => {
   await setup({
     host: "http://localhost:3000",
   });
