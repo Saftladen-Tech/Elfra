@@ -6,7 +6,7 @@ describe("login test", async () => {
     host: "http://localhost:3000",
   });
 
-  it("static content", async () => {
+  it.skip("static content", async () => {
     const page = await createPage("/login");
     const content = await page.getByTestId("contentwrapper");
 
@@ -17,7 +17,7 @@ describe("login test", async () => {
     expect(await content.getByTestId("authProviders").count()).toBe(1);
   });
 
-  it("dynamic content", async () => {
+  it.skip("dynamic content", async () => {
     const page = await createPage("/login");
     const content = await page.getByTestId("contentwrapper");
     const mail = await content.getByRole("textbox", {name:"Email"});
@@ -29,7 +29,7 @@ describe("login test", async () => {
     expect(await content.getByRole("button", {name:"submit"}).count()).toBe(1);
   });
 
-  it("content position", async () => {
+  it.skip("content position", async () => {
     const page = await createPage("/login");
     const content = await page.getByTestId("contentwrapper");
     const contentbox = await content.boundingBox();

@@ -37,16 +37,16 @@ describe("header content", async () => {
     expect(elementCenterX).toBeCloseTo(vpxc, 1); // Allow slight margin
   });
 
-  it.skip("static hero content", async () => {
-    const page = await createPage("/login");
+  it("static hero content", async () => {
+    const page = await createPage("/logout");
     const heroheader = await page.getByTestId("header");
 
     expect(await heroheader.getByAltText("Company Logo").count()).toBe(1);
     expect(await heroheader.getByRole("heading", { level: 1 }).count()).toBe(1);
   });
 
-  it.skip("hero header position", async () => {
-    const page = await createPage("/login");
+  it("hero header position", async () => {
+    const page = await createPage("/logout");
 
     const heroheader = await page.getByTestId("header");
     const heroheaderbox = await heroheader.boundingBox();
