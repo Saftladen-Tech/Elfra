@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test": "vitest"
+    "tests": "vitest"
   },
   "dependencies": {
     "@nuxt/content": "^3.7.1",
