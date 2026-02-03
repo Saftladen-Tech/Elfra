@@ -7,25 +7,25 @@ describe("Chapter-Content test", async () => {
   });
 
   it("Has Chapter Heading", async () => {
-    const page = await createPage("/chapter_content");
+    const page = await createPage("/courses/elfra-getting-started/introduction/start");
     expect(await page.getByRole("heading", { level: 1 }).count()).toBe(1);
   });
 
   it("Has Topic Heading", async () => {
-    const page = await createPage("/chapter_content");
+    const page = await createPage("/courses/elfra-getting-started/introduction/start");
     const content = page.getByTestId("content");
     expect(await content.getByRole("heading", { level: 2 }).count()).toBe(1);
   });
 
   it("Has Nav Buttons next", async () => {
-    const page = await createPage("/chapter_content");
+    const page = await createPage("/courses/elfra-getting-started/introduction/start");
     expect(
       await page.getByRole("link", { name: "Weiter", exact: true }).count()
     ).toBe(1);
   });
 
   it("Has Nav Buttons prev", async () => {
-    const page = await createPage("/chapter_content");
+    const page = await createPage("/courses/elfra-getting-started/introduction/installation-1");
     expect(
       await page.getByRole("link", { name: "Zurück", exact: true }).count()
     ).toBe(1);
