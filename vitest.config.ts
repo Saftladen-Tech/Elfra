@@ -5,5 +5,8 @@ export default defineVitestConfig({
   plugins: [vue()],
   test: {
     environment: "happy-dom",
+    provide: {
+      testURL: 'http://localhost:3000',
+    },
   },
 });
