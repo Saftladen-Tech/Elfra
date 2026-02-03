@@ -7,13 +7,13 @@ describe("course start test", async () => {
   });
 
   it("course start content", async () => {
-    const page = await createPage("/course_start");
+    const page = await createPage("/courses/elfra-getting-started");
     const content = await page.getByTestId("contentwrapper");
     expect(await content.getByRole("heading", { level: 1 }).count()).toBe(1);
   });
 
   it("Content position", async () => {
-    const page = await createPage("/course_start");
+    const page = await createPage("/courses/elfra-getting-started");
 
     const content = await page.getByTestId("contentwrapper");
     const contentbox = await content.boundingBox();
@@ -28,7 +28,7 @@ describe("course start test", async () => {
   });
 
   it("Start button", async () => {
-    const page = await createPage("/course_start");
+    const page = await createPage("/courses/elfra-getting-started");
     const content = await page.getByTestId("contentwrapper");
 
     expect(
@@ -37,7 +37,7 @@ describe("course start test", async () => {
   });
 
   it("Start button position", async () => {
-    const page = await createPage("/course_start");
+    const page = await createPage("/courses/elfra-getting-started");
     const content = await page.getByTestId("contentwrapper");
 
     const start = await content.getByRole("link", {
