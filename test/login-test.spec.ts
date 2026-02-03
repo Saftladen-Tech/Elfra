@@ -1,10 +1,11 @@
 import { describe, it, expect, test, inject } from "vitest";
 import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
-import { config } from "../customconfig/config.js";
+
+const customConfig = inject('customConfig')
 
 let cDescribe = describe
 
-if(!config.auth.enabled){
+if(!customConfig.auth.enabled){
   cDescribe = describe.skip
 }
 
