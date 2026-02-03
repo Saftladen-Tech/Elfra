@@ -1,9 +1,17 @@
-import { describe, it, expect, test } from "vitest";
+import { describe, it, expect, test, inject } from "vitest";
 import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
 
-describe("login test", async () => {
+const customConfig = inject('customConfig')
+
+let cDescribe = describe
+
+if(!customConfig.auth.enabled){
+  cDescribe = describe.skip
+}
+
+cDescribe("login test", async () => {
   await setup({
-    host: "http://localhost:3000",
+    host: inject('testURL'),
   });
 
   it("static content", async () => {
