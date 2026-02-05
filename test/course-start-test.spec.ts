@@ -1,19 +1,19 @@
-import { describe, it, expect, test } from "vitest";
+import { describe, it, expect, test, inject } from "vitest";
 import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
 
 describe("course start test", async () => {
   await setup({
-    host: "http://localhost:3000",
+    host: inject('testURL'),
   });
 
   it("course start content", async () => {
-    const page = await createPage("/course_start");
+    const page = await createPage("/courses/elfra-getting-started");
     const content = await page.getByTestId("contentwrapper");
     expect(await content.getByRole("heading", { level: 1 }).count()).toBe(1);
   });
 
   it("Content position", async () => {
-    const page = await createPage("/course_start");
+    const page = await createPage("/courses/elfra-getting-started");
 
     const content = await page.getByTestId("contentwrapper");
     const contentbox = await content.boundingBox();
@@ -28,7 +28,7 @@ describe("course start test", async () => {
   });
 
   it("Start button", async () => {
-    const page = await createPage("/course_start");
+    const page = await createPage("/courses/elfra-getting-started");
     const content = await page.getByTestId("contentwrapper");
 
     expect(
@@ -37,7 +37,7 @@ describe("course start test", async () => {
   });
 
   it("Start button position", async () => {
-    const page = await createPage("/course_start");
+    const page = await createPage("/courses/elfra-getting-started");
     const content = await page.getByTestId("contentwrapper");
 
     const start = await content.getByRole("link", {

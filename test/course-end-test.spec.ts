@@ -1,13 +1,13 @@
-import { describe, it, expect, test } from "vitest";
+import { describe, it, expect, test, inject } from "vitest";
 import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
 
 describe("course end test", async () => {
   await setup({
-    host: "http://localhost:3000",
+    host: inject('testURL'),
   });
 
   it("static content", async () => {
-    const page = await createPage("/course_end");
+    const page = await createPage("/courses/elfra-getting-started/finished");
     const content = await page.getByTestId("contentwrapper");
     const heading = await content.getByRole("heading", { level: 1 });
     expect(await heading.allInnerTexts()).toContain("Kurs beendet!");
@@ -17,7 +17,7 @@ describe("course end test", async () => {
   });
 
   it("Content position", async () => {
-    const page = await createPage("/course_end");
+    const page = await createPage("/courses/elfra-getting-started/finished");
 
     const content = await page.getByTestId("contentwrapper"); // Adjust selector if needed
     const contentbox = await content.boundingBox();
@@ -32,27 +32,27 @@ describe("course end test", async () => {
   });
 
   it("Has ICON", async () => {
-    const page = await createPage("/course_end");
+    const page = await createPage("/courses/elfra-getting-started/finished");
     const content = page.getByTestId("icon");
     expect(await content.count()).toBe(1);
   });
 
   it("Has Nav Buttons end", async () => {
-    const page = await createPage("/course_end");
+    const page = await createPage("/courses/elfra-getting-started/finished");
     const navigation = page.getByTestId("navigation");
     expect(
       await navigation
-        .getByRole("button", { name: "Beenden", exact: true })
+        .getByRole("link", { name: "Beenden", exact: true })
         .count()
     ).toBe(1);
   });
 
   it("Has Nav Buttons repeat", async () => {
-    const page = await createPage("/course_end");
+    const page = await createPage("/courses/elfra-getting-started/finished");
     const navigation = page.getByTestId("navigation");
     expect(
       await navigation
-        .getByRole("button", { name: "Neustarten", exact: true })
+        .getByRole("link", { name: "Neustarten", exact: true })
         .count()
     ).toBe(1);
   });

@@ -1,9 +1,9 @@
-import { describe, it, expect, test } from "vitest";
+import { describe, it, expect, test, inject } from "vitest";
 import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
 
 describe("header content", async () => {
   await setup({
-    host: "http://localhost:3000",
+    host: inject('testURL'),
   });
 
   it("static nav content", async () => {
@@ -11,8 +11,15 @@ describe("header content", async () => {
     const baseheader = await page.getByTestId("header");
 
     expect(await baseheader.getByAltText("Company Logo").count()).toBe(1);
-    // NOT CLEANLY DONE IN CODE - REVISIT expect(await baseheader.getByTestId("avatar").count()).toBe(1);
     expect(await baseheader.getByRole("navigation").count()).toBe(1);
+    expect(await baseheader.getByTestId("colormode").count()).toBe(1);
+  });
+
+  it("static nav content mobile", async () => {
+    const page = await createPage("/");
+    const baseheader = await page.getByTestId("header-mobile");
+
+    expect(await baseheader.getByAltText("Company Logo").count()).toBe(1);
     expect(await baseheader.getByTestId("colormode").count()).toBe(1);
   });
 
@@ -31,7 +38,7 @@ describe("header content", async () => {
   });
 
   it("static hero content", async () => {
-    const page = await createPage("/login");
+    const page = await createPage("/logout");
     const heroheader = await page.getByTestId("header");
 
     expect(await heroheader.getByAltText("Company Logo").count()).toBe(1);
@@ -39,7 +46,7 @@ describe("header content", async () => {
   });
 
   it("hero header position", async () => {
-    const page = await createPage("/login");
+    const page = await createPage("/logout");
 
     const heroheader = await page.getByTestId("header");
     const heroheaderbox = await heroheader.boundingBox();

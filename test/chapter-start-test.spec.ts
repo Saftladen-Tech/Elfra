@@ -1,20 +1,20 @@
-import { describe, it, expect, test } from "vitest";
+import { describe, it, expect, test, inject } from "vitest";
 import { setup, createPage, $fetch } from "@nuxt/test-utils/e2e";
 
 describe("chapter start test", async () => {
   await setup({
-    host: "http://localhost:3000",
+    host: inject('testURL'),
   });
 
   it("Content Base", async () => {
-    const page = await createPage("/chapter_start");
+    const page = await createPage("/courses/elfra-getting-started/introduction");
     const content = await page.getByTestId("contentwrapper");
     expect(await content.getByRole("heading", { level: 1 }).count()).toBe(1);
     expect(await content.getByRole("paragraph").count()).toBe(1);
   });
 
   it("Content position", async () => {
-    const page = await createPage("/chapter_start");
+    const page = await createPage("/courses/elfra-getting-started/introduction");
 
     const content = await page.getByTestId("contentwrapper");
     const contentbox = await content.boundingBox();
@@ -29,12 +29,12 @@ describe("chapter start test", async () => {
   });
 
   it("Start button", async () => {
-    const page = await createPage("/chapter_start");
+    const page = await createPage("/courses/elfra-getting-started/introduction");
     expect(await page.getByTestId("startbtn").count()).toBe(1);
   });
 
   it("Start button position", async () => {
-    const page = await createPage("/chapter_start");
+    const page = await createPage("/courses/elfra-getting-started/introduction");
 
     const start = await page.getByTestId("startbtn"); // Adjust selector if needed
     const startbox = await start.boundingBox();
