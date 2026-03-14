@@ -5,9 +5,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ${HOME}/dev/container_assets/demo_elfra0/courses:/app/content/courses
-      - ${HOME}/dev/container_assets/demo_elfra0/config:/app/customconfig
-      - ${HOME}/dev/container_assets/demo_elfra0/data:/app/public
+      - ${HOME}/demo_elfra0/courses:/app/content/courses
+      - ${HOME}/demo_elfra0/config:/app/customconfig
+      - ${HOME}/demo_elfra0/data:/app/public
     environment:
       NODE_ENV: production
     restart: unless-stopped
@@ -17,9 +17,9 @@ services:
     ports:
       - "3100:3000"
     volumes:
-      - ${HOME}/dev/container_assets/demo_elfra1/courses:/app/content/courses
-      - ${HOME}/dev/container_assets/demo_elfra1/config:/app/customconfig
-      - ${HOME}/dev/container_assets/demo_elfra1/data:/app/public
+      - ${HOME}/demo_elfra1/courses:/app/content/courses
+      - ${HOME}/demo_elfra1/config:/app/customconfig
+      - ${HOME}/demo_elfra1/data:/app/public
     environment:
       NODE_ENV: production
     restart: unless-stopped
@@ -29,9 +29,9 @@ services:
     ports:
       - "3200:3000"
     volumes:
-      - ${HOME}/dev/container_assets/demo_elfra2/courses:/app/content/courses
-      - ${HOME}/dev/container_assets/demo_elfra2/config:/app/customconfig
-      - ${HOME}/dev/container_assets/demo_elfra2/data:/app/public
+      - ${HOME}/demo_elfra2/courses:/app/content/courses
+      - ${HOME}/demo_elfra2/config:/app/customconfig
+      - ${HOME}/demo_elfra2/data:/app/public
     environment:
       NODE_ENV: production
     restart: unless-stopped
@@ -41,9 +41,9 @@ services:
     ports:
       - "3300:3000"
     volumes:
-      - ${HOME}/dev/container_assets/demo_elfra3/courses:/app/content/courses
-      - ${HOME}/dev/container_assets/demo_elfra3/config:/app/customconfig
-      - ${HOME}/dev/container_assets/demo_elfra3/data:/app/public
+      - ${HOME}/demo_elfra3/courses:/app/content/courses
+      - ${HOME}/demo_elfra3/config:/app/customconfig
+      - ${HOME}/demo_elfra3/data:/app/public
     environment:
       NODE_ENV: production
     restart: unless-stopped
