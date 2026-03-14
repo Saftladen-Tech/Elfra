@@ -11,6 +11,10 @@ export default defineNuxtConfig({
   modules: ["@nuxt/content", "@nuxt/ui", "@nuxt/fonts", authprovider].filter(
     Boolean
   ),
+  icon: {
+    provider: 'iconify',
+    serverBundle: false,
+  },
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,
